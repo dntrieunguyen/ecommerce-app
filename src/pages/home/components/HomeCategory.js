@@ -19,7 +19,7 @@ export default function HomeCategory({ imgSrc }) {
                ))}
             </div>
             <div className="grid grid-cols-3 gap-10 mt-10 category__img--small">
-               {imgSrc.category.slice(2).map((item, index) => (
+               {imgSrc.category.slice(2, 5).map((item, index) => (
                   <img
                      key={index}
                      src={item}

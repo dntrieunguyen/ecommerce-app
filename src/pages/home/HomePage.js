@@ -2,10 +2,10 @@ import React from 'react';
 import './HomePage.scss';
 import Navbar from '../../components/navbar/Navbar.js';
 import Footer from '../../components/footer/Footer.js';
-import HomeBanner from './homeContent/HomeBanner.js';
-import HomeCategory from './homeContent/HomeCategory.js';
-import HomeTopTrend from './homeContent/HomeTopTrend.js';
-import HomeService from './homeContent/HomeService.js';
+import HomeBanner from './components/HomeBanner.js';
+import HomeCategory from './components/HomeCategory.js';
+import HomeTopTrend from './components/HomeTopTrend.js';
+import HomeService from './components/HomeService.js';
 
 export default function HomePage() {
    const imgSrc = {

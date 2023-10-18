@@ -3,9 +3,9 @@ import './ShopPage.scss';
 import Navbar from '../../components/navbar/Navbar';
 import Footer from '../../components/footer/Footer';
 import Product from '../../components/product/Product';
-import ShopCategory from './shopContent/ShopCategory';
-import ShopSearch from './shopContent/ShopSearch';
-import ShopPagination from './shopContent/ShopPagination';
+import ShopCategory from './components/ShopCategory';
+import ShopSearch from './components/ShopSearch';
+import ShopPagination from './components/ShopPagination';
 export default function ShopPage() {
    const shopCategory = [
       {
