@@ -29,7 +29,10 @@ export default function Footer() {
                   <h2 className="uppercase text-lead">{item.title}</h2>
                   <div className="pt-4 text-secondary">
                      {item.content.map((content, index) => (
-                        <p key={index} className="py-2 cursor-pointer">
+                        <p
+                           key={index}
+                           className="py-2 cursor-pointer hover:duration-500 hover:text-warning"
+                        >
                            {content}
                         </p>
                      ))}

@@ -15,9 +15,9 @@ export default function ShopCategory({ shopCategory }) {
                   <li className="px-6 py-2 bg-slate-100 font-[500]">
                      {cate.categroy}
                   </li>
-                  {cate.item.map((item, index) => (
+                  {cate.item.map((item, itemIndex) => (
                      <li
-                        key={index}
+                        key={itemIndex}
                         className="px-6 py-2 capitalize cursor-pointer text-secondary hover:text-warning"
                      >
                         {item}

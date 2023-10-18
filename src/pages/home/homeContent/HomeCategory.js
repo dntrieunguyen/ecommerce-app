@@ -8,12 +8,12 @@ export default function HomeCategory({ imgSrc }) {
                <h4 className="text-secondary">carefully created collections</h4>
                <h2 className="text-lead">browse our categories</h2>
             </div>
-            <div className="flex gap-10 mt-10 category__img--big">
+            <div className="grid grid-cols-2 gap-10 mt-10 category__img--big">
                {imgSrc.category.slice(0, 2).map((item, index) => (
                   <img
                      key={index}
                      src={item}
-                     className=" h-[450px/3] w-1/2 hover:opacity-50"
+                     className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"
                      alt={`product_${index}`}
                   />
                ))}
@@ -23,7 +23,7 @@ export default function HomeCategory({ imgSrc }) {
                   <img
                      key={index}
                      src={item}
-                     className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500"
+                     className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"
                      alt={`product_${index}`}
                   />
                ))}

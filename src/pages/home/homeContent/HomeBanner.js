@@ -3,7 +3,7 @@ import React from 'react';
 export default function HomeBanner({ imgSrc }) {
    return (
       <>
-         <banner className="relative banner bg-slate-200 h-1/2">
+         <div className="relative banner bg-slate-200 h-1/2">
             <img
                src={imgSrc.banner}
                className="w-full h-[450px]"
@@ -16,7 +16,7 @@ export default function HomeBanner({ imgSrc }) {
                   browse collection
                </button>
             </div>
-         </banner>
+         </div>
       </>
    );
 }
