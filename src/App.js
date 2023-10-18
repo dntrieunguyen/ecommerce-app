@@ -1,14 +1,26 @@
 import './App.scss';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/home/HomePage';
+import ShopPage from './pages/shop/ShopPage';
+import CartPage from './pages/cart/CartPage';
+import DetailPage from './pages/detail/DetailPage';
+import CheckOutPage from './pages/checkOut/CheckOutPage';
+import LogInPage from './pages/logIn/LogInPage';
+import RegisterPage from './pages/register/RegisterPage';
 
 function App() {
    return (
-      <div>
-         <h2 className="font-bold text-transparent text-brand bg-gradient-to-tl from-primary to-error bg-clip-text">
-            This is ecommerce app
-         </h2>
-
-         <div className="w-[500px] h-[200px] bg-gradient-error"></div>
-      </div>
+      <BrowserRouter>
+         <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/shop" element={<ShopPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/detail" element={<DetailPage />} />
+            <Route path="/checkOut" element={<CheckOutPage />} />
+            <Route path="/logIn" element={<LogInPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+         </Routes>
+      </BrowserRouter>
    );
 }
 
