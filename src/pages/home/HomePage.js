@@ -31,7 +31,7 @@ export default function HomePage() {
             <div className="flex justify-between my-20 subcribe">
                <div className="subcribe__title">
                   <h2 className="uppercase text-lead font-[500]">
-                     let's be friend
+                     let's be friend !
                   </h2>
                   <h4 className=" text-secondary">
                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -39,7 +39,7 @@ export default function HomePage() {
                </div>
                <form className="subscribe__action">
                   <input
-                     className="w-[400px] h-full px-5 border border-slate-400 focus-visible:outline-none"
+                     className="w-[400px] h-full px-5 border border-slate-200 focus-visible:outline-none"
                      type="text"
                      placeholder="Enter your email address"
                   />

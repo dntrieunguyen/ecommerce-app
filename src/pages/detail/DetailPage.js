@@ -1,5 +1,13 @@
 import React from 'react';
 import './DetailPage.scss';
+import Navbar from '../../components/navbar/Navbar';
+import Footer from '../../components/footer/Footer';
 export default function DetailPage() {
-   return <div>Đây là DetailPage</div>;
+   return (
+      <>
+         <Navbar></Navbar>
+
+         <Footer></Footer>
+      </>
+   );
 }
