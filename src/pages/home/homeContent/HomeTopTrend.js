@@ -11,7 +11,7 @@ export default function HomeTopTrend() {
             <div className="grid grid-cols-4 gap-5 toptrend__content">
                <div className="toptrend__item">
                   <img
-                     src={require('../../assets/img/product_1.png')}
+                     src={require('../../../assets/img/product_1.png')}
                      className="h-[300px] hover:opacity-50 hover:duration-500"
                      alt=""
                   />
