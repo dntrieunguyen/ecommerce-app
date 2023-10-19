@@ -45,6 +45,15 @@
 :root {
    font-size: 10px;
    font-style: italic;
+
+   button {
+      @apply h-full px-8 py-4 uppercase bg-dark text-light
+      hover:text-warning;
+   }
+
+   input {
+      @apply focus-visible:outline-none;
+   }
 }
 
 body {
