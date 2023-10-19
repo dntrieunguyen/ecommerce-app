@@ -6,12 +6,16 @@ import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 
 export default function UserAuth() {
+   // const isShow = false;
+   const isShow = true;
    return (
       <>
          <Navbar></Navbar>
-         <div className="relative bg-center bg-cover user-auth">
-            {true && <RegisterForm></RegisterForm>}
-            {false && <LoginForm></LoginForm>}
+         <div className="bg-center bg-cover user-auth">
+            <div className="relative w-full h-full">
+               {isShow && <RegisterForm></RegisterForm>}
+               {!isShow && <LoginForm></LoginForm>}
+            </div>
          </div>
          <Footer></Footer>
       </>

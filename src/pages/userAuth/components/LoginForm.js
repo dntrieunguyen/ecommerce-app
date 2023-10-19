@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function LoginForm() {
    return (
-      <>
+      <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/3 left-1/2 ">
          <form
             autoComplete="off"
-            className="w-full max-w-[400px] p-10 bg-white rounded-lg shadow absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            className="w-[400px] p-10 bg-white rounded-lg shadow slide-in-bottom"
             aria-label="login-form"
          >
             <h2 className="mb-10 text-title font-[500] text-center">SIGN IN</h2>
@@ -52,6 +52,6 @@ export default function LoginForm() {
                </p>
             </div>
          </form>
-      </>
+      </div>
    );
 }

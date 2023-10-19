@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function RegisterForm() {
    return (
-      <>
+      <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/3 left-1/2 ">
          <form
-            className="w-full max-w-[400px] p-10 bg-white rounded-lg shadow absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            className="w-[400px] slide-in-bottom p-10 bg-white rounded-lg shadow "
             aria-label="signup-form"
          >
             <h2 className="mb-10 text-title font-[500] text-center">SIGN UP</h2>
@@ -78,6 +78,6 @@ export default function RegisterForm() {
                </p>
             </div>
          </form>
-      </>
+      </div>
    );
 }
