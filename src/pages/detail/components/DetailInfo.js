@@ -4,18 +4,18 @@ import { faBackward, faForward } from '@fortawesome/free-solid-svg-icons';
 export default function DetailInfo() {
    return (
       <>
-         <div className="flex gap-10 detail__info">
+         <div className="flex gap-10 my-10 detail__info">
             <img src={require('../../../assets/img/product_1.png')} alt="" />
             <div className="detail__info__content">
                <h2 className="uppercase text-brand font-[500]">title</h2>
-               <p className=" text-lead text-secondary">10.999.999 VND</p>
-               <p className="my-10 text-content text-secondary">
+               <p className="my-10 text-lead text-secondary">10.999.999 VND</p>
+               <p className=" text-content text-secondary">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
                   sit numquam nisi voluptas eligendi accusantium, eaque porro
                   reprehenderit animi dolores!
                </p>
-               <div className="flex mb-10 detail__info__category">
-                  <h4 className="pe-3 font-[500]">category: </h4>
+               <div className="flex my-10 detail__info__category">
+                  <h4 className="pe-3 font-[500] uppercase">category: </h4>
                   <p>type</p>
                </div>
                <div className="flex detail__info__action">

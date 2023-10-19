@@ -5,8 +5,7 @@ import ShopPage from './pages/shop/ShopPage';
 import CartPage from './pages/cart/CartPage';
 import DetailPage from './pages/detail/DetailPage';
 import CheckOutPage from './pages/checkOut/CheckOutPage';
-import LogInPage from './pages/logIn/LogInPage';
-import RegisterPage from './pages/register/RegisterPage';
+import UserAuth from './pages/userAuth/UserAuth';
 
 function App() {
    return (
@@ -17,8 +16,8 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/detail" element={<DetailPage />} />
             <Route path="/checkout" element={<CheckOutPage />} />
-            <Route path="/login" element={<LogInPage />} />
-            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/userAuth" element={<UserAuth />} />
+            {/* <Route path="/register" element={<RegisterPage />} /> */}
          </Routes>
       </BrowserRouter>
    );
