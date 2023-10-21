@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function HomeBanner({ imgSrc }) {
    return (
@@ -13,7 +14,7 @@ export default function HomeBanner({ imgSrc }) {
                <h4 className="text-secondary">new inspiration 2020</h4>
                <h2 className="mt-5 text-brand">20% off on new season</h2>
                <button className="px-8 py-4 mt-10 uppercase bg-dark text-light">
-                  browse collection
+                  <Link to="/shop">browse collection</Link>
                </button>
             </div>
          </div>

@@ -14,7 +14,7 @@ export default function CartPage() {
             <div className="cart__content w-[80%] mx-auto my-10">
                <h2 className="font-[500] text-title my-10">SHOPPING CART</h2>
                <div className="grid grid-cols-3 gap-10 cart__detail">
-                  <div class="col-span-2 ">
+                  <div className="col-span-2 ">
                      <CartTable></CartTable>
                   </div>
                   <CartTotal></CartTotal>

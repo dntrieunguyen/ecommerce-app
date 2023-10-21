@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function RegisterForm() {
+export default function RegisterForm({ handleShowForm }) {
    return (
       <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/3 left-1/2 ">
          <form
@@ -73,7 +73,10 @@ export default function RegisterForm() {
             </button>
             <div className="flex items-center justify-center my-5 text-slate-400">
                <p>Login?</p>
-               <p className="text-blue-500 underline cursor-pointer ps-3">
+               <p
+                  className="text-blue-500 underline cursor-pointer ps-3"
+                  onClick={handleShowForm}
+               >
                   Click
                </p>
             </div>

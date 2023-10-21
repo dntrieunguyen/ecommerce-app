@@ -9,8 +9,8 @@ import React from 'react';
 export default function CartItem() {
    return (
       <>
-         <tr class="bg-white border-b text-center">
-            <td class="px-6 py-4">
+         <tr className="text-center bg-white border-b">
+            <td className="px-6 py-4">
                <img
                   src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6417/6417809_sd.jpg;maxHeight=640;maxWidth=550"
                   width="50px"
@@ -18,9 +18,9 @@ export default function CartItem() {
                   className="mx-auto"
                />
             </td>
-            <th class="px-6 py-4">product</th>
-            <td class="px-6 py-4">$2999</td>
-            <td class="px-6 py-4">
+            <th className="px-6 py-4">product</th>
+            <td className="px-6 py-4">$2999</td>
+            <td className="px-6 py-4">
                <FontAwesomeIcon
                   icon={faBackward}
                   className="cursor-pointer hover:text-warning"
@@ -31,8 +31,8 @@ export default function CartItem() {
                   className="cursor-pointer hover:text-warning"
                />
             </td>
-            <td class="px-6 py-4">$2999</td>
-            <td class="px-6 py-4 text-center ">
+            <td className="px-6 py-4">$2999</td>
+            <td className="px-6 py-4 text-center ">
                <FontAwesomeIcon
                   icon={faTrash}
                   className="cursor-pointer hover:text-warning"
