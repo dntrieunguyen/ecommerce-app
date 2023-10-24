@@ -6,8 +6,6 @@ import HomeBanner from './components/HomeBanner.js';
 import HomeCategory from './components/HomeCategory.js';
 import HomeTopTrend from './components/HomeTopTrend.js';
 import HomeService from './components/HomeService.js';
-import useFetch from '../../apiService/fetchAPI';
-import { API } from '../../apiService/API';
 
 export default function HomePage() {
    const imgSrc = {
@@ -20,9 +18,6 @@ export default function HomePage() {
          require('../../assets/img/product_5.png'),
       ],
    };
-
-   const { data } = useFetch(API);
-   console.log(data);
 
    return (
       <>

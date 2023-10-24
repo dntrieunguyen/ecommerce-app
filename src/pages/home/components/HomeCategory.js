@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function HomeCategory({ imgSrc }) {
    return (
@@ -11,26 +11,26 @@ export default function HomeCategory({ imgSrc }) {
             </div>
             <div className="grid grid-cols-2 gap-10 mt-10 category__img--big">
                {imgSrc.category.slice(0, 2).map((item, index) => (
-                  <Link to="/shop">
+                  <NavLink to="/shop">
                      <img
                         key={index}
                         src={item}
                         className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"
                         alt={`product_${index}`}
                      />
-                  </Link>
+                  </NavLink>
                ))}
             </div>
             <div className="grid grid-cols-3 gap-10 mt-10 category__img--small">
                {imgSrc.category.slice(2, 5).map((item, index) => (
-                  <Link to="/shop">
+                  <NavLink to="/shop">
                      <img
                         key={index}
                         src={item}
                         className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"
                         alt={`product_${index}`}
                      />
-                  </Link>
+                  </NavLink>
                ))}
             </div>
          </div>
