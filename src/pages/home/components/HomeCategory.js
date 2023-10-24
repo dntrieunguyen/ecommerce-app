@@ -1,7 +1,14 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export default function HomeCategory({ imgSrc }) {
+   const navigate = useNavigate();
+
+   const handleClick = () => {
+      //handle
+      navigate('/shop');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+   };
    return (
       <>
          <div className="category">
@@ -11,20 +18,20 @@ export default function HomeCategory({ imgSrc }) {
             </div>
             <div className="grid grid-cols-2 gap-10 mt-10 category__img--big">
                {imgSrc.category.slice(0, 2).map((item, index) => (
-                  <NavLink to="/shop">
-                     <img
-                        key={index}
-                        src={item}
-                        className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"
-                        alt={`product_${index}`}
-                     />
-                  </NavLink>
+                  <img
+                     onClick={handleClick}
+                     key={`product_${index}`}
+                     src={item}
+                     className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"
+                     alt={`product_${index}`}
+                  />
                ))}
             </div>
             <div className="grid grid-cols-3 gap-10 mt-10 category__img--small">
                {imgSrc.category.slice(2, 5).map((item, index) => (
                   <NavLink to="/shop">
                      <img
+                        onClick={handleClick}
                         key={index}
                         src={item}
                         className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"

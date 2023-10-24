@@ -3,6 +3,7 @@ import { cartSlice } from './reducer/cartSlice';
 import { productSlice } from './reducer/productSlice';
 import { filterProductsSlice } from './reducer/filterProductsSlice';
 import { detailProductSlice } from './reducer/detailProductSlice';
+import { showPopSlice } from './reducer/showPopSlice';
 
 export const store = configureStore({
    reducer: {
@@ -15,5 +16,6 @@ export const store = configureStore({
       product: productSlice.reducer,
       filters: filterProductsSlice.reducer,
       detailProduct: detailProductSlice.reducer,
+      popup: showPopSlice.reducer,
    },
 });

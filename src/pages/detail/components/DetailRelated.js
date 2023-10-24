@@ -5,7 +5,10 @@ import { productListSelector } from '../../../redux/selector';
 
 export default function DetailRelated({ category }) {
    const product = useSelector(productListSelector);
-   console.log();
+   const handleClickProduct = () => {
+      //handle
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+   };
    return (
       <>
          <div className="my-20 detail__related">
@@ -22,6 +25,7 @@ export default function DetailRelated({ category }) {
                            img1={item.img1}
                            name={item.name}
                            price={item.price}
+                           handleClickProduct={handleClickProduct}
                         ></Product>
                      ))}
             </div>

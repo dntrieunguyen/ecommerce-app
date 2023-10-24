@@ -1,8 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackward, faForward } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { cartSlice } from '../../../redux/reducer/cartSlice';
 
 export default function DetailInfo({ product }) {
+   const [carItems, setCartItems] = useState({
+      id: '',
+      name: '',
+      price: 0,
+      quantity: 0,
+      total: 0,
+   });
+
+   const [quantity, setQuantity] = useState(0);
+
+   const dispatch = useDispatch();
+
+   const handleAddtoCartBtn = () => {
+      //handle
+
+      const newCartItems = {
+         id: product._id.$oid,
+         name: product.name,
+         price: +product.price,
+         quantity: 2,
+         total: 0,
+      };
+      dispatch(cartSlice.actions.ADD_CART(newCartItems));
+
+      setCartItems(newCartItems);
+   };
+
+   const handlePlusItems = () => {
+      //handle
+   };
+   const handleMinusItems = () => {
+      //handle
+   };
+
    return (
       <>
          <div className="grid grid-cols-2 gap-10 my-10 detail__info">
@@ -40,7 +76,7 @@ export default function DetailInfo({ product }) {
                         />
                      </div>
                   </div>
-                  <button>Add to cart</button>
+                  <button onClick={handleAddtoCartBtn}>Add to cart</button>
                </div>
             </div>
          </div>

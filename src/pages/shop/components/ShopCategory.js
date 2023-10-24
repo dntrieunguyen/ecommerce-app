@@ -3,14 +3,17 @@ import { useDispatch } from 'react-redux';
 import { filterProductsSlice } from '../../../redux/reducer/filterProductsSlice';
 
 export default function ShopCategory({ shopCategory }) {
+   const [isActive, setIsActive] = useState(false);
    const [category, setCategory] = useState('all');
 
    const dispatch = useDispatch();
 
    const handleClickCategory = item => {
       const newCategory = item.target.innerText.toLowerCase();
+
       setCategory(newCategory);
       dispatch(filterProductsSlice.actions.categoryChange(newCategory));
+      setCategory('all');
    };
 
    return (
@@ -20,7 +23,7 @@ export default function ShopCategory({ shopCategory }) {
             <h4 className="px-6 py-2 bg-dark text-light">apple</h4>
             <p
                onClick={item => handleClickCategory(item)}
-               className="px-6 py-2 capitalize cursor-pointer text-secondary hover:text-warning"
+               className="px-6 py-2 capitalize cursor-pointer text-secondary hover:text-light hover:bg-slate-400"
             >
                all
             </p>
@@ -34,7 +37,7 @@ export default function ShopCategory({ shopCategory }) {
                      <li
                         onClick={item => handleClickCategory(item)}
                         key={itemIndex}
-                        className="px-6 py-2 capitalize cursor-pointer text-secondary hover:text-warning"
+                        className="px-6 py-2 capitalize cursor-pointer text-secondary hover:text-light hover:bg-slate-400"
                      >
                         {item}
                      </li>

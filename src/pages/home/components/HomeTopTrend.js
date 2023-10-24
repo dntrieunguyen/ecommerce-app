@@ -1,10 +1,35 @@
 import React from 'react';
 import Product from '../../../components/product/Product';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { productListSelector } from '../../../redux/selector';
+import PopUp from '../../../components/popup/PopUp';
+import { showPopSlice } from '../../../redux/reducer/showPopSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomeTopTrend() {
    const productsList = useSelector(productListSelector);
+
+   const dispatch = useDispatch();
+
+   const navigate = useNavigate();
+
+   const isShowPop = useSelector(state => state.popup.isShowPop);
+
+   const handleClickProduct = () => {
+      //handle
+      dispatch(showPopSlice.actions.SHOW_POPUP(true));
+   };
+
+   const handleClosePopUp = () => {
+      //handle
+      dispatch(showPopSlice.actions.HIDE_POPUP(false));
+   };
+
+   const handleViewDetailBtn = () => {
+      dispatch(showPopSlice.actions.HIDE_POPUP(false));
+      navigate('/detail');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+   };
 
    return (
       <>
@@ -17,15 +42,22 @@ export default function HomeTopTrend() {
                {productsList &&
                   productsList.map(product => (
                      <Product
-                        key={product.id}
+                        key={product._id.$oid}
                         id={product._id.$oid}
                         img1={product.img1}
                         name={product.name}
                         price={product.price}
+                        handleClickProduct={handleClickProduct}
                      ></Product>
                   ))}
             </div>
          </div>
+         {isShowPop && (
+            <PopUp
+               handleClosePopUp={handleClosePopUp}
+               handleViewDetailBtn={handleViewDetailBtn}
+            ></PopUp>
+         )}
       </>
    );
 }

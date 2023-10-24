@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { detailProductSlice } from '../../redux/reducer/detailProductSlice';
-import { Link } from 'react-router-dom';
 
 export default function Product(props) {
    const dispatch = useDispatch();
@@ -9,18 +8,17 @@ export default function Product(props) {
    const handleClickProduct = () => {
       const newProductID = props.id;
       dispatch(detailProductSlice.actions.updateProductID(newProductID));
+      props.handleClickProduct();
    };
    return (
       <>
-         <div className="product">
-            <Link to="/detail">
-               <img
-                  onClick={handleClickProduct}
-                  src={props.img1}
-                  className="h-[300px] hover:opacity-50 hover:duration-500 cursor-pointer"
-                  alt=""
-               />
-            </Link>
+         <div className="product scale-in-center">
+            <img
+               onClick={handleClickProduct}
+               src={props.img1}
+               className="h-[300px] hover:opacity-50 hover:duration-500 cursor-pointer"
+               alt=""
+            />
 
             <div className="text-center product__content">
                <h4 className="font-[600]">{props.name}</h4>

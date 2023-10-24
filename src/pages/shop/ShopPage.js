@@ -8,6 +8,7 @@ import ShopSearch from './components/ShopSearch';
 import ShopPagination from './components/ShopPagination';
 import { useSelector } from 'react-redux';
 import { remainingProduct } from '../../redux/selector';
+import { useNavigate } from 'react-router-dom';
 
 export default function ShopPage() {
    const shopCategory = [
@@ -25,6 +26,14 @@ export default function ShopPage() {
       },
    ];
    const productsList = useSelector(remainingProduct);
+
+   const navigate = useNavigate();
+
+   const handleClickProduct = () => {
+      //handle
+      navigate('/detail');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+   };
 
    return (
       <>
@@ -46,6 +55,7 @@ export default function ShopPage() {
                               img1={product.img1}
                               name={product.name}
                               price={product.price}
+                              handleClickProduct={handleClickProduct}
                            ></Product>
                         ))}
                   </div>
