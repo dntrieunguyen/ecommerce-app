@@ -24,8 +24,8 @@ export default function DetailInfo({ product }) {
          id: product._id.$oid,
          name: product.name,
          price: +product.price,
-         quantity: 2,
-         total: 0,
+         quantity: quantity,
+         total: quantity * +product.price,
       };
       dispatch(cartSlice.actions.ADD_CART(newCartItems));
 
@@ -34,9 +34,16 @@ export default function DetailInfo({ product }) {
 
    const handlePlusItems = () => {
       //handle
+      const newQuantity = quantity + 1;
+
+      setQuantity(newQuantity);
    };
    const handleMinusItems = () => {
       //handle
+      if (quantity > 0) {
+         const newQuantity = quantity - 1;
+         setQuantity(newQuantity);
+      }
    };
 
    return (
@@ -66,11 +73,13 @@ export default function DetailInfo({ product }) {
                      <span className="p-3 text-secondary">QUANTITY</span>
                      <div className="flex items-center gap-5 px-3">
                         <FontAwesomeIcon
+                           onClick={handleMinusItems}
                            className="cursor-pointer hover:text-warning"
                            icon={faBackward}
                         />
-                        <span className="font-[500]">1</span>
+                        <span className="font-[500]">{quantity}</span>
                         <FontAwesomeIcon
+                           onClick={handlePlusItems}
                            className="cursor-pointer hover:text-warning"
                            icon={faForward}
                         />

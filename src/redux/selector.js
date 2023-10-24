@@ -9,6 +9,8 @@ export const categoryFitlerSelector = state => state.filters.category;
 
 export const detailProductSelector = state => state.detailProduct.productID;
 
+export const cartItemSelector = state => state.cart.cartItems;
+
 export const remainingProduct = createSelector(
    productListSelector,
    searchInputChangeSelector,

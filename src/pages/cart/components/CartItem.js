@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
-export default function CartItem() {
+export default function CartItem({ name, price, quantity, total }) {
    return (
       <>
          <tr className="text-center bg-white border-b">
@@ -18,20 +18,20 @@ export default function CartItem() {
                   className="mx-auto"
                />
             </td>
-            <th className="px-6 py-4">product</th>
-            <td className="px-6 py-4">$2999</td>
+            <th className="px-6 py-4">{name}</th>
+            <td className="px-6 py-4">{price}</td>
             <td className="px-6 py-4">
                <FontAwesomeIcon
                   icon={faBackward}
                   className="cursor-pointer hover:text-warning"
                />
-               <span className="px-3">1</span>
+               <span className="px-3">{quantity}</span>
                <FontAwesomeIcon
                   icon={faForward}
                   className="cursor-pointer hover:text-warning"
                />
             </td>
-            <td className="px-6 py-4">$2999</td>
+            <td className="px-6 py-4">{total}</td>
             <td className="px-6 py-4 text-center ">
                <FontAwesomeIcon
                   icon={faTrash}

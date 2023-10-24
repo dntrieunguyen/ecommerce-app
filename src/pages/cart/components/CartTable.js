@@ -3,6 +3,8 @@ import CartItem from './CartItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { cartItemSelector } from '../../../redux/selector';
 
 export default function CartTable() {
    const headTableCart = [
@@ -13,6 +15,9 @@ export default function CartTable() {
       'Total',
       'Remove',
    ];
+
+   const cartItems = useSelector(cartItemSelector);
+   console.log(cartItems);
    return (
       <>
          <table className="w-full text-left text-gray-500">
@@ -26,10 +31,16 @@ export default function CartTable() {
                </tr>
             </thead>
             <tbody>
-               <CartItem></CartItem>
-               <CartItem></CartItem>
-               <CartItem></CartItem>
-               <CartItem></CartItem>
+               {cartItems &&
+                  cartItems.map(item => (
+                     <CartItem
+                        key={item.id}
+                        name={item.name}
+                        price={item.price}
+                        quantity={item.quantity}
+                        total={item.total}
+                     ></CartItem>
+                  ))}
             </tbody>
             <tfoot>
                <tr className="h-[50px] bg-slate-100 ">
