@@ -6,6 +6,9 @@ import Product from '../../components/product/Product';
 import ShopCategory from './components/ShopCategory';
 import ShopSearch from './components/ShopSearch';
 import ShopPagination from './components/ShopPagination';
+import { useSelector } from 'react-redux';
+import { remainingProduct } from '../../redux/selector';
+
 export default function ShopPage() {
    const shopCategory = [
       {
@@ -21,6 +24,8 @@ export default function ShopPage() {
          item: ['mouse', 'keyboard', 'other'],
       },
    ];
+   const productsList = useSelector(remainingProduct);
+
    return (
       <>
          <Navbar></Navbar>
@@ -33,7 +38,16 @@ export default function ShopPage() {
                <div className="col-start-2 col-end-5 shop__display">
                   <ShopSearch></ShopSearch>
                   <div className="grid grid-cols-3 gap-5 my-10 shop__display__item">
-                     <Product></Product>
+                     {productsList &&
+                        productsList.map(product => (
+                           <Product
+                              key={product._id.$oid}
+                              id={product._id.$oid}
+                              img1={product.img1}
+                              name={product.name}
+                              price={product.price}
+                           ></Product>
+                        ))}
                   </div>
                   <div className="flex justify-end shop__pagination">
                      <ShopPagination></ShopPagination>

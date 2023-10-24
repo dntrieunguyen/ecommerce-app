@@ -1,18 +1,29 @@
 import React from 'react';
 import Product from '../../../components/product/Product';
+import { useSelector } from 'react-redux';
+import { productListSelector } from '../../../redux/selector';
 
-export default function DetailRelated() {
+export default function DetailRelated({ category }) {
+   const product = useSelector(productListSelector);
+   console.log();
    return (
       <>
          <div className="my-20 detail__related">
             <h2 className="uppercase text-lead">related products</h2>
 
             <div className="grid grid-cols-4 gap-10 my-5 detail__related__content">
-               <Product></Product>
-               <Product></Product>
-               <Product></Product>
-               <Product></Product>
-               <Product></Product>
+               {product &&
+                  product
+                     .filter(item => item.category === category)
+                     .map(item => (
+                        <Product
+                           key={item._id.$oid}
+                           id={item._id.$oid}
+                           img1={item.img1}
+                           name={item.name}
+                           price={item.price}
+                        ></Product>
+                     ))}
             </div>
          </div>
       </>

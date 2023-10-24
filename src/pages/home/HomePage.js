@@ -1,4 +1,3 @@
-import React, { useCallback, useEffect } from 'react';
 import './HomePage.scss';
 import Navbar from '../../components/navbar/Navbar.js';
 import Footer from '../../components/footer/Footer.js';

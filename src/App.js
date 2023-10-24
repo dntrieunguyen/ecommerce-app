@@ -6,7 +6,7 @@ import CartPage from './pages/cart/CartPage';
 import DetailPage from './pages/detail/DetailPage';
 import CheckOutPage from './pages/checkOut/CheckOutPage';
 import UserAuth from './pages/userAuth/UserAuth';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchProduct } from './redux/reducer/productSlice';
 

@@ -1,6 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { cartSlice } from './reducer/cartSlice';
 import { productSlice } from './reducer/productSlice';
+import { filterProductsSlice } from './reducer/filterProductsSlice';
+import { detailProductSlice } from './reducer/detailProductSlice';
 
 export const store = configureStore({
    reducer: {
@@ -11,5 +13,7 @@ export const store = configureStore({
         */
       cart: cartSlice.reducer,
       product: productSlice.reducer,
+      filters: filterProductsSlice.reducer,
+      detailProduct: detailProductSlice.reducer,
    },
 });
