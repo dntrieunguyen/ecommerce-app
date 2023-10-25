@@ -15,7 +15,7 @@ export default function Product(props) {
          <div className="product scale-in-center">
             <img
                onClick={handleClickProduct}
-               src={props.img1}
+               src={props?.img1}
                className="h-[300px] hover:opacity-50 hover:duration-500 cursor-pointer"
                alt=""
             />

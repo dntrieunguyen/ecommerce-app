@@ -7,6 +7,7 @@ import { cartSlice } from '../../../redux/reducer/cartSlice';
 export default function DetailInfo({ product }) {
    const [carItems, setCartItems] = useState({
       id: '',
+      img: '',
       name: '',
       price: 0,
       quantity: 0,
@@ -22,6 +23,7 @@ export default function DetailInfo({ product }) {
 
       const newCartItems = {
          id: product._id.$oid,
+         img: product.img1,
          name: product.name,
          price: +product.price,
          quantity: quantity,
@@ -49,17 +51,27 @@ export default function DetailInfo({ product }) {
    return (
       <>
          <div className="grid grid-cols-2 gap-10 my-10 detail__info">
-            <img className="" src={product?.img1} alt="" />
+            <div className="grid grid-cols-5 gap-5">
+               <img
+                  className="col-span-4 col-start-2"
+                  src={product?.img1}
+                  alt=""
+               />
+               <div className="flex flex-col col-start-1 row-start-1 gap-5">
+                  <img src={product?.img2} alt="" />
+                  <img src={product?.img3} alt="" />
+                  <img src={product?.img4} alt="" />
+               </div>
+            </div>
             <div className=" detail__info__content">
                <h2 className="uppercase text-brand font-[500]">
                   {product?.name}
                </h2>
                <p className="my-10 text-lead text-secondary">
-                  `$
                   {product?.price
                      .toString()
                      .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
-                  VND`
+                  VND
                </p>
                <p className="text-justify text-content text-secondary">
                   {product?.short_desc}

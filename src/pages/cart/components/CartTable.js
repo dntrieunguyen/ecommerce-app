@@ -17,7 +17,7 @@ export default function CartTable() {
    ];
 
    const cartItems = useSelector(cartItemSelector);
-   console.log(cartItems);
+
    return (
       <>
          <table className="w-full text-left text-gray-500">
@@ -31,16 +31,25 @@ export default function CartTable() {
                </tr>
             </thead>
             <tbody>
-               {cartItems &&
+               {cartItems.length ? (
                   cartItems.map(item => (
                      <CartItem
                         key={item.id}
+                        id={item.id}
                         name={item.name}
+                        img={item.img}
                         price={item.price}
                         quantity={item.quantity}
                         total={item.total}
                      ></CartItem>
-                  ))}
+                  ))
+               ) : (
+                  <tr>
+                     <td colSpan={6} className="py-3 text-center">
+                        Chưa có sản phẩm nào trong giỏ hàng
+                     </td>
+                  </tr>
+               )}
             </tbody>
             <tfoot>
                <tr className="h-[50px] bg-slate-100 ">
