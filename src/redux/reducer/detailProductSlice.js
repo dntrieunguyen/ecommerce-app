@@ -5,11 +5,12 @@ export const detailProductSlice = createSlice({
    initialState: {
       // handle here!
       productID: '',
+      img: '',
    },
    reducers: {
       // handle here!
       updateProductID: (state, action) => {
-         state.productID = action.payload;
+         state.productID = action.payload.productID;
       },
    },
 });

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackward, faForward } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { cartSlice } from '../../../redux/reducer/cartSlice';
 
 export default function DetailInfo({ product }) {

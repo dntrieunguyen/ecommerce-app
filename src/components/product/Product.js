@@ -7,7 +7,13 @@ export default function Product(props) {
 
    const handleClickProduct = () => {
       const newProductID = props.id;
-      dispatch(detailProductSlice.actions.updateProductID(newProductID));
+      const newImg = props.img1;
+      dispatch(
+         detailProductSlice.actions.updateProductID({
+            productID: newProductID,
+            img: newImg,
+         }),
+      );
       props.handleClickProduct();
    };
    return (

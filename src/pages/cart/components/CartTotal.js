@@ -6,13 +6,12 @@ import { cartSlice } from '../../../redux/reducer/cartSlice';
 
 export default function CartTotal() {
    const [couponText, setCouponText] = useState('');
+
    const couponTextRef = useRef('');
 
    const [checkDiscount, setCheckDiscount] = useState(true);
 
    const cart = useSelector(state => state.cart.cart);
-
-   console.log(cart);
 
    const dispatch = useDispatch();
 
