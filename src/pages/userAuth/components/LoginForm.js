@@ -1,6 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { userAuthSlice } from '../../../redux/reducer/userAuthSlice';
 
 export default function LoginForm({ handleShowForm }) {
+   const [userName, setUserName] = useState('');
+   const [userPassword, setUserPassword] = useState('');
+   const [errorMessage, setErrorMessage] = useState('');
+
+   const onLogIn = useSelector(state => state.userAuth.onLogIn);
+
+   const dispatch = useDispatch();
+
+   const handleUserNameChange = e => {
+      setUserName(e.target.value);
+   };
+   const handleUserPasswordChange = e => {
+      setUserPassword(e.target.value);
+   };
+
+   const handleSignInBtn = e => {
+      e.preventDefault();
+
+      const newUser = {
+         name: userName,
+         password: userPassword,
+      };
+
+      const isValid = handleValidateData(newUser);
+
+      if (isValid) {
+         dispatch(userAuthSlice.actions.LOGIN(newUser));
+         setUserName('');
+         setUserPassword('');
+      }
+   };
+
+   const handleValidateData = user => {
+      const { name, password } = user;
+
+      if (name.trim().length === 0 || password.trim().length === 0) {
+         setErrorMessage('Please Enter This Filed !!!');
+         return false;
+      }
+   };
+
    return (
       <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/3 left-1/2 ">
          <form
@@ -12,17 +55,22 @@ export default function LoginForm({ handleShowForm }) {
 
             <div className="flex flex-col items-start mb-5 gap-y-3">
                <label
-                  htmlFor="email"
+                  htmlFor="name"
                   className="text-sm font-[500] cursor-pointer "
                >
-                  EMAIL
+                  Name
                </label>
                <input
-                  id="email"
-                  type="email"
+                  id="name"
+                  onChange={handleUserNameChange}
+                  value={userName}
+                  type="name"
                   className="w-full p-4 bg-transparent border border-gray-200 rounded-lg outline-none"
-                  placeholder="Enter your email address ..."
+                  placeholder="Enter your name address ..."
                />
+               <span className="h-[10px] text-error text-sm">
+                  {userName.trim().length === 0 && errorMessage}
+               </span>
             </div>
             <div className="flex flex-col items-start mb-5 gap-y-3">
                <label
@@ -32,14 +80,20 @@ export default function LoginForm({ handleShowForm }) {
                   PASSWORD
                </label>
                <input
+                  onChange={handleUserPasswordChange}
+                  value={userPassword}
                   id="password"
                   type="password"
                   className="w-full p-4 bg-transparent border border-gray-200 rounded-lg outline-none"
                   placeholder="Enter your password ..."
                />
+               <span className="h-[10px] text-error text-sm">
+                  {errorMessage}
+               </span>
             </div>
 
             <button
+               onClick={handleSignInBtn}
                type="submit"
                className="inline-flex w-full items-center justify-center px-8 py-4 font-sans font-semibold tracking-wide text-white bg-blue-500 rounded-lg h-[60px]"
             >
