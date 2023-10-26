@@ -4,6 +4,7 @@ import { productSlice } from './reducer/productSlice';
 import { filterProductsSlice } from './reducer/filterProductsSlice';
 import { detailProductSlice } from './reducer/detailProductSlice';
 import { showPopSlice } from './reducer/showPopSlice';
+import { userAuthSlice } from './reducer/userAuthSlice';
 
 export const store = configureStore({
    reducer: {
@@ -17,5 +18,6 @@ export const store = configureStore({
       filters: filterProductsSlice.reducer,
       detailProduct: detailProductSlice.reducer,
       popup: showPopSlice.reducer,
+      userAuth: userAuthSlice.reducer,
    },
 });
