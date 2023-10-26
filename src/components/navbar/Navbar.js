@@ -55,7 +55,7 @@ export default function Navbar() {
                      )}
 
                      {isShowCartExpand && (
-                        <div className="shadow-2xl absolute cart__expand w-[300px] bg-light p-5 z-10 my-3 translate-x-[150px] right-0">
+                        <div className="shadow-2xl h-[500px] overflow-y-auto absolute cart__expand w-[300px] bg-light p-5 z-10 my-3 translate-x-[150px] right-0">
                            {cartItems.length > 0 ? (
                               cartItems.map(item => (
                                  <div

@@ -11,6 +11,7 @@ export const detailProductSlice = createSlice({
       // handle here!
       updateProductID: (state, action) => {
          state.productID = action.payload.productID;
+         state.img = action.payload.img;
       },
    },
 });

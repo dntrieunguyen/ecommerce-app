@@ -35,37 +35,29 @@ export const cartSlice = createSlice({
       ADD_CART: (state, action) => {
          /*
         Handle here!
-        state.cartItems.push(action.payload) => payload là id
+        
         */
 
          const currentCartItems = state.cartItems;
 
          const checkItems = currentCartItems.findIndex(
-            item => item.id === action.payload.id, // check payload đã có trong cartItems, {} / undefine
+            item => item.id === action.payload.id, // check payload đã có trong cartItems, index/-1
          );
 
-         //TH1: cartItems đã tồn tại
-         if (currentCartItems.length) {
-            //TH1.1: payload không tồn tại trong cartItems
-            if (checkItems === -1) {
-               state.cartItems.push(action.payload);
-            }
-
-            //TH1.2: payload tồn tại trong cartItems
-            if (checkItems !== -1) {
-               currentCartItems[checkItems].quantity += action.payload.quantity;
-
-               state.cartItems = currentCartItems.map(item => {
-                  return item.id === action.payload.id
-                     ? currentCartItems[checkItems]
-                     : item;
-               });
-            }
+         //TH1: payload không tồn tại trong cartItems
+         if (checkItems === -1) {
+            state.cartItems.push(action.payload);
          }
 
-         //TH2: cartItems rỗng
-         if (currentCartItems.length === 0) {
-            state.cartItems.push(action.payload);
+         //TH2: payload tồn tại trong cartItems
+         if (checkItems !== -1) {
+            currentCartItems[checkItems].quantity += action.payload.quantity;
+
+            state.cartItems = currentCartItems.map(item => {
+               return item.id === action.payload.id
+                  ? currentCartItems[checkItems]
+                  : item;
+            });
          }
 
          //Total
@@ -93,17 +85,20 @@ export const cartSlice = createSlice({
 
          const updateCartItems = state.cartItems;
 
+         // Lấy index của payload có trong cart
          const ItemsIndex = updateCartItems.findIndex(
             item => item.id === payload.id,
          );
 
+         // cập nhật lại quantity, total
+         updateCartItems[ItemsIndex].quantity = payload.quantity;
+         updateCartItems[ItemsIndex].total =
+            updateCartItems[ItemsIndex].quantity *
+            updateCartItems[ItemsIndex].price;
          if (ItemsIndex !== -1) {
-            updateCartItems[ItemsIndex].quantity = payload.quantity;
-            updateCartItems[ItemsIndex].total =
-               updateCartItems[ItemsIndex].quantity *
-               updateCartItems[ItemsIndex].price;
          }
 
+         // Xoá item trong cart nếu quantity = 0
          if (updateCartItems[ItemsIndex].quantity === 0) {
             state.cartItems = updateCartItems.filter(
                item => item.id !== payload.id,
@@ -129,7 +124,7 @@ export const cartSlice = createSlice({
       DELETE_CART: (state, action) => {
          /*
         Handle here!
-        state.cartItems.filter( item => item.id !== action.payload) => payload là id
+        
         */
          const payload = action.payload;
          state.cartItems = state.cartItems.filter(item => item.id !== payload);

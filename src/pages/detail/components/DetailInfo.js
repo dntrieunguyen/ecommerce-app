@@ -3,8 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackward, faForward } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartSlice } from '../../../redux/reducer/cartSlice';
+import { detailProductSlice } from '../../../redux/reducer/detailProductSlice';
 
 export default function DetailInfo({ product }) {
+   const imgDisplay = useSelector(state => state.detailProduct.img);
    const [carItems, setCartItems] = useState({
       id: '',
       img: '',
@@ -14,7 +16,7 @@ export default function DetailInfo({ product }) {
       total: 0,
    });
 
-   const [quantity, setQuantity] = useState(0);
+   const [quantity, setQuantity] = useState(1);
 
    const dispatch = useDispatch();
 
@@ -42,10 +44,21 @@ export default function DetailInfo({ product }) {
    };
    const handleMinusItems = () => {
       //handle
-      if (quantity > 0) {
+      if (quantity > 1) {
          const newQuantity = quantity - 1;
          setQuantity(newQuantity);
       }
+   };
+
+   const handleChangeImg = e => {
+      //handle
+      const newImgDisplay = e.target.currentSrc;
+      dispatch(
+         detailProductSlice.actions.updateProductID({
+            productID: product._id.$oid,
+            img: newImgDisplay,
+         }),
+      );
    };
 
    return (
@@ -54,13 +67,28 @@ export default function DetailInfo({ product }) {
             <div className="grid grid-cols-5 gap-5">
                <img
                   className="col-span-4 col-start-2"
-                  src={product?.img1}
+                  src={imgDisplay}
                   alt=""
                />
                <div className="flex flex-col col-start-1 row-start-1 gap-5">
-                  <img src={product?.img2} alt="" />
-                  <img src={product?.img3} alt="" />
-                  <img src={product?.img4} alt="" />
+                  <img
+                     onClick={e => handleChangeImg(e)}
+                     src={product?.img2}
+                     alt=""
+                     className="cursor-pointer"
+                  />
+                  <img
+                     onClick={e => handleChangeImg(e)}
+                     src={product?.img3}
+                     alt=""
+                     className="cursor-pointer"
+                  />
+                  <img
+                     onClick={e => handleChangeImg(e)}
+                     src={product?.img4}
+                     alt=""
+                     className="cursor-pointer"
+                  />
                </div>
             </div>
             <div className=" detail__info__content">
