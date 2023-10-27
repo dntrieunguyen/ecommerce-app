@@ -24,7 +24,7 @@ import {
 const userPersistConfig = {
    key: 'user',
    storage,
-   whitelist: ['userOn', 'userCart', 'onLogIn'],
+   whitelist: ['userOn', 'userCart', 'onLogIn', 'userList'],
 };
 
 export const store = configureStore({

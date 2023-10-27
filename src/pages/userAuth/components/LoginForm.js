@@ -64,7 +64,7 @@ export default function LoginForm({ handleShowForm }) {
             );
             console.log(userCartFilter);
             dispatch(
-               cartSlice.actions.UPDATE_CART_LOGIN(userCartFilter.cartItems),
+               cartSlice.actions.UPDATE_CART_LOGIN(userCartFilter?.cartItems),
             );
          }
          dispatch(userAuthSlice.actions.LOGIN(newUser));

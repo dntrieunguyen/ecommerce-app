@@ -5,6 +5,7 @@ import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userAuthSlice } from '../../redux/reducer/userAuthSlice';
+import { cartSlice } from '../../redux/reducer/cartSlice';
 export default function Navbar() {
    const cart = useSelector(state => state.cart.cart);
    const [isShowCartExpand, setIsShowCartExpand] = useState(false);
@@ -39,6 +40,7 @@ export default function Navbar() {
 
       if (window.confirm('Are you Sure ?')) {
          dispatch(userAuthSlice.actions.LOGOUT(userOut));
+         dispatch(cartSlice.actions.UPDATE_CART_LOGOUT());
          navigate('/userAuth');
       }
    };

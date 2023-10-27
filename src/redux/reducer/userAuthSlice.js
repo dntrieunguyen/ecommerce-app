@@ -4,15 +4,8 @@ export const userAuthSlice = createSlice({
    name: 'userAuth',
    initialState: {
       userOn: {},
-      userCart: [],
-      userList: [
-         {
-            name: 'admin',
-            email: 'admin',
-            password: '123456789',
-            phone: '+84123456789',
-         },
-      ],
+      userCart: [], // chưa xử lý
+      userList: [],
       onLogIn: false,
       isRegister: false,
    },
@@ -42,6 +35,7 @@ export const userAuthSlice = createSlice({
          }
 
          state.userCart = updateUserCart;
+
          state.onLogIn = false;
          state.userOn = {};
       },
@@ -53,7 +47,12 @@ export const userAuthSlice = createSlice({
 
          updateUserList.push(payload);
          state.userList = updateUserList;
+
          state.isRegister = true;
+         state.userCart.push({
+            email: action.payload.email,
+            cartItems: [],
+         });
       },
    },
 });
