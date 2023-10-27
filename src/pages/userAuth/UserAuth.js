@@ -4,9 +4,11 @@ import Navbar from '../../components/navbar/Navbar';
 import Footer from '../../components/footer/Footer';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
+import { useSelector } from 'react-redux';
 
 export default function UserAuth() {
-   const [showAuthForm, setShowAuthForm] = useState(false);
+   const isRegister = useSelector(state => state?.UserAuth?.isRegister);
+   const [showAuthForm, setShowAuthForm] = useState(isRegister);
    const handleShowForm = () => {
       setShowAuthForm(!showAuthForm);
    };
