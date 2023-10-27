@@ -10,7 +10,7 @@ export default function PopUp(props) {
       <div className="absolute flex items-center justify-center w-full h-full -translate-x-1/2 -translate-y-1/2 pop__containter top-1/2 left-1/2">
          <div
             onClick={props.handleClosePopUp}
-            className="absolute w-full h-full bg-[rgba(0,0,0,0.3)] fade-in-fwd"
+            className="absolute w-full h-full bg-[rgba(0,0,0,0.3)] fade-in-fwd transition-all"
          ></div>
          <div className=" w-[700px] bg-white grid grid-cols-2 pop__content z-10 ">
             <img className="h-[450px] p-10" src={product.img1} alt="" />

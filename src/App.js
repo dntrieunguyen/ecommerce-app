@@ -9,6 +9,7 @@ import UserAuth from './pages/userAuth/UserAuth';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchProduct } from './redux/reducer/productSlice';
+import ChatComponent from './components/chat/ChatComponent';
 
 function App() {
    const dispatch = useDispatch();
@@ -22,17 +23,20 @@ function App() {
    // + fulfilled
    // + error
    return (
-      <BrowserRouter>
-         <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/detail" element={<DetailPage />} />
-            <Route path="/checkout" element={<CheckOutPage />} />
-            <Route path="/userAuth" element={<UserAuth />} />
-            {/* <Route path="/register" element={<RegisterPage />} /> */}
-         </Routes>
-      </BrowserRouter>
+      <>
+         <BrowserRouter>
+            <Routes>
+               <Route path="/" element={<HomePage />} />
+               <Route path="/shop" element={<ShopPage />} />
+               <Route path="/cart" element={<CartPage />} />
+               <Route path="/detail" element={<DetailPage />} />
+               <Route path="/checkout" element={<CheckOutPage />} />
+               <Route path="/userAuth" element={<UserAuth />} />
+               {/* <Route path="/register" element={<RegisterPage />} /> */}
+            </Routes>
+            <ChatComponent></ChatComponent>
+         </BrowserRouter>
+      </>
    );
 }
 

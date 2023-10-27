@@ -22,7 +22,7 @@ export default function Product(props) {
             <img
                onClick={handleClickProduct}
                src={props?.img1}
-               className="h-[300px] hover:opacity-50 hover:duration-500 cursor-pointer"
+               className="h-[300px] hover:opacity-50 hover:duration-500 cursor-pointer transition-all"
                alt=""
             />
 

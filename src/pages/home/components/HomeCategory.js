@@ -22,7 +22,7 @@ export default function HomeCategory({ imgSrc }) {
                      onClick={handleClick}
                      key={`productBig_${index}`}
                      src={item}
-                     className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"
+                     className=" h-[450px/3] w-full transition-all hover:opacity-50 hover:duration-500 cursor-pointer"
                      alt={`product_${index}`}
                   />
                ))}
@@ -33,7 +33,7 @@ export default function HomeCategory({ imgSrc }) {
                      <img
                         onClick={handleClick}
                         src={item}
-                        className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"
+                        className=" h-[450px/3] transition-all w-full hover:opacity-50 hover:duration-500 cursor-pointer"
                         alt={`product_${index}`}
                      />
                   </NavLink>

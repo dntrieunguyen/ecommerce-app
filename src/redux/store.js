@@ -26,6 +26,10 @@ const userPersistConfig = {
    storage,
    whitelist: ['userOn', 'userCart', 'onLogIn', 'userList'],
 };
+const cartPersistConfig = {
+   key: 'cart',
+   storage,
+};
 
 export const store = configureStore({
    reducer: {
@@ -34,7 +38,7 @@ export const store = configureStore({
         nameReducer_2 : reducerSlice_2.reducer,
         nameReducer_3 : reducerSlice_3.reducer,
         */
-      cart: cartSlice.reducer,
+      cart: persistReducer(cartPersistConfig, cartSlice.reducer),
       product: productSlice.reducer,
       filters: filterProductsSlice.reducer,
       detailProduct: detailProductSlice.reducer,
