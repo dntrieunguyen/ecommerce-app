@@ -1,46 +1,68 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userAuthSlice } from '../../../redux/reducer/userAuthSlice';
+import { loginSubmitValidate } from '../../../services/validation';
 
 export default function LoginForm({ handleShowForm }) {
-   const [userName, setUserName] = useState('');
-   const [userPassword, setUserPassword] = useState('');
-   const [errorMessage, setErrorMessage] = useState('');
+   const [user, setUser] = useState({
+      email: '',
+      password: '',
+   });
 
-   const onLogIn = useSelector(state => state.userAuth.onLogIn);
+   const [errorMessage, setErrorMessage] = useState({
+      email: '',
+      password: '',
+   });
+   const userList = useSelector(state => state.userAuth.userList);
 
    const dispatch = useDispatch();
 
-   const handleUserNameChange = e => {
-      setUserName(e.target.value);
+   const handleUserEmailChange = e => {
+      const value = e.target.value;
+      setUser(prev => ({ ...prev, email: value }));
+
+      if (value.trim().length > 0) {
+         setErrorMessage({ ...errorMessage, email: '' });
+      }
    };
    const handleUserPasswordChange = e => {
-      setUserPassword(e.target.value);
-   };
+      const value = e.target.value;
+      setUser(prev => ({ ...prev, password: value }));
 
+      if (value.trim().length > 0) {
+         setErrorMessage({ ...errorMessage, password: '' });
+      }
+   };
    const handleSignInBtn = e => {
       e.preventDefault();
 
       const newUser = {
-         name: userName,
-         password: userPassword,
+         email: user.email,
+         password: user.password,
       };
 
-      const isValid = handleValidateData(newUser);
+      const { email, password } = newUser;
+
+      const isValid = loginSubmitValidate(
+         email,
+         password,
+         userList,
+         setErrorMessage,
+      );
+
+      if (isValid === false) {
+         setUser({ ...user, password: '' });
+      }
 
       if (isValid) {
          dispatch(userAuthSlice.actions.LOGIN(newUser));
-         setUserName('');
-         setUserPassword('');
-      }
-   };
 
-   const handleValidateData = user => {
-      const { name, password } = user;
+         alert('Login Success !!!');
 
-      if (name.trim().length === 0 || password.trim().length === 0) {
-         setErrorMessage('Please Enter This Filed !!!');
-         return false;
+         setUser({
+            email: '',
+            password: '',
+         });
       }
    };
 
@@ -55,21 +77,21 @@ export default function LoginForm({ handleShowForm }) {
 
             <div className="flex flex-col items-start mb-5 gap-y-3">
                <label
-                  htmlFor="name"
+                  htmlFor="email"
                   className="text-sm font-[500] cursor-pointer "
                >
-                  Name
+                  Email
                </label>
                <input
-                  id="name"
-                  onChange={handleUserNameChange}
-                  value={userName}
-                  type="name"
+                  id="email"
+                  onChange={handleUserEmailChange}
+                  value={user?.email}
+                  type="email"
                   className="w-full p-4 bg-transparent border border-gray-200 rounded-lg outline-none"
                   placeholder="Enter your name address ..."
                />
                <span className="h-[10px] text-error text-sm">
-                  {userName.trim().length === 0 && errorMessage}
+                  {errorMessage.email}
                </span>
             </div>
             <div className="flex flex-col items-start mb-5 gap-y-3">
@@ -81,14 +103,14 @@ export default function LoginForm({ handleShowForm }) {
                </label>
                <input
                   onChange={handleUserPasswordChange}
-                  value={userPassword}
+                  value={user.password}
                   id="password"
                   type="password"
                   className="w-full p-4 bg-transparent border border-gray-200 rounded-lg outline-none"
                   placeholder="Enter your password ..."
                />
                <span className="h-[10px] text-error text-sm">
-                  {errorMessage}
+                  {errorMessage.password}
                </span>
             </div>
 

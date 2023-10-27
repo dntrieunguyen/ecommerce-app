@@ -3,14 +3,19 @@ import './Navbar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { userAuthSlice } from '../../redux/reducer/userAuthSlice';
 export default function Navbar() {
    const cart = useSelector(state => state.cart.cart);
    const [isShowCartExpand, setIsShowCartExpand] = useState(false);
 
+   const userOn = useSelector(state => state.userAuth.userOn);
+   const onLogIn = useSelector(state => state.userAuth.onLogIn);
+
    const cartItems = useSelector(state => state.cart.cartItems);
 
    const navigate = useNavigate();
+   const dispatch = useDispatch();
 
    const handleClickCartIcon = () => {
       //handle
@@ -23,6 +28,10 @@ export default function Navbar() {
 
    const handleClickCartExpandItem = () => {
       navigate('/cart');
+   };
+
+   const handleLogoutBtn = () => {
+      dispatch(userAuthSlice.actions.LOGOUT(userOn));
    };
 
    return (
@@ -96,16 +105,25 @@ export default function Navbar() {
                   </p>
                </li>
 
-               <Link to="/userAuth">
-                  <li className="capitalize cursor-pointer">
-                     <FontAwesomeIcon
-                        icon={faUser}
-                        className="px-3 text-secondary hover:text-warning"
-                     />
-                     user
-                  </li>
-               </Link>
-               {/* <li className="capitalize cursor-pointer">(LoginStatus)</li> */}
+               <li className="capitalize cursor-pointer">
+                  <FontAwesomeIcon
+                     onClick={() => navigate('/userAuth')}
+                     icon={faUser}
+                     className="px-3 text-secondary hover:text-warning hover:scale-150 hover:duration-300"
+                  />
+                  {userOn.name}
+               </li>
+
+               {onLogIn && (
+                  <>
+                     <li
+                        onClick={handleLogoutBtn}
+                        className="capitalize cursor-pointer hover:text-warning"
+                     >
+                        (Logout)
+                     </li>
+                  </>
+               )}
             </ul>
          </nav>
       </>

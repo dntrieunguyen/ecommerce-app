@@ -6,13 +6,6 @@ export const registerSubmitValidate = (
    userList,
    setErrorMessage,
 ) => {
-   const newErrorMessage = {
-      name: '',
-      email: '',
-      password: '',
-      phone: '',
-   };
-
    const checkEmail = userList.findIndex(item => item.email === email);
 
    // console.log(checkEmail);
@@ -66,6 +59,56 @@ export const registerSubmitValidate = (
       setErrorMessage(prev => ({
          ...prev,
          phone: 'Please Enter This Field',
+      }));
+      isValid = false;
+   }
+   return isValid;
+};
+
+export const loginSubmitValidate = (
+   email,
+   password,
+   userList,
+   setErrorMessage,
+) => {
+   const checkEmail = userList.findIndex(item => item.email === email);
+
+   // console.log(checkEmail);
+
+   let isValid = true;
+   // Kiểm tra email
+   if (email.trim().length === 0) {
+      setErrorMessage(prevErrors => ({
+         ...prevErrors,
+         email: 'Please Enter This Field',
+      }));
+      isValid = false;
+   } else if (checkEmail === -1) {
+      setErrorMessage(prevErrors => ({
+         ...prevErrors,
+         email: 'Invalid Email',
+      }));
+
+      isValid = false;
+   }
+
+   if (checkEmail !== -1) {
+      const user = userList[checkEmail];
+
+      if (user?.password !== password) {
+         setErrorMessage(prev => ({
+            ...prev,
+            password: 'Password wrong !!!',
+         }));
+         isValid = false;
+      }
+   }
+
+   // Kiểm tra password
+   if (password.trim().length === 0) {
+      setErrorMessage(prev => ({
+         ...prev,
+         password: 'Please Enter This Field',
       }));
       isValid = false;
    }
