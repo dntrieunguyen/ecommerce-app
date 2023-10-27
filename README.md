@@ -1,6 +1,6 @@
-# Visit App
+# Visit demo app here
 
-(https://ecommerce-app-git-master-yosefs-projects.vercel.app/)
+https://ecommerce-app-git-master-yosefs-projects.vercel.app/
 
 # Getting Started with Create React App
 
