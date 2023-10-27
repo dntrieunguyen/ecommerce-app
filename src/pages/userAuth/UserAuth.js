@@ -21,7 +21,7 @@ export default function UserAuth() {
             <div className="relative w-full h-full">
                {onLogIn === true ? (
                   <span className="absolute -translate-x-1/2 -translate-y-1/2 top-1/3 left-1/2 text-brand">
-                     welcome {user.name}
+                     WELCOME {user.name}
                   </span>
                ) : (
                   <>

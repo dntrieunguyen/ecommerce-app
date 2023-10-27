@@ -12,6 +12,8 @@ export const cartSlice = createSlice({
             'discount-75': 0.75,
          },
 
+         couponUsed: '',
+
          amount: 0,
          subTotal: 0,
          totalWithCoupon: 0,

@@ -20,7 +20,7 @@ export default function HomeCategory({ imgSrc }) {
                {imgSrc.category.slice(0, 2).map((item, index) => (
                   <img
                      onClick={handleClick}
-                     key={`product_${index}`}
+                     key={`productBig_${index}`}
                      src={item}
                      className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"
                      alt={`product_${index}`}
@@ -29,10 +29,9 @@ export default function HomeCategory({ imgSrc }) {
             </div>
             <div className="grid grid-cols-3 gap-10 mt-10 category__img--small">
                {imgSrc.category.slice(2, 5).map((item, index) => (
-                  <NavLink to="/shop">
+                  <NavLink key={`productSmall_${index}`} to="/shop">
                      <img
                         onClick={handleClick}
-                        key={index}
                         src={item}
                         className=" h-[450px/3] w-full hover:opacity-50 hover:duration-500 cursor-pointer"
                         alt={`product_${index}`}

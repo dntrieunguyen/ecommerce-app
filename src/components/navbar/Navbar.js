@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userAuthSlice } from '../../redux/reducer/userAuthSlice';
 import { cartSlice } from '../../redux/reducer/cartSlice';
+import { filterProductsSlice } from '../../redux/reducer/filterProductsSlice';
 export default function Navbar() {
    const cart = useSelector(state => state.cart.cart);
    const [isShowCartExpand, setIsShowCartExpand] = useState(false);
@@ -45,6 +46,11 @@ export default function Navbar() {
       }
    };
 
+   const handleClickShopBtn = () => {
+      dispatch(filterProductsSlice.actions.DefaultFilter());
+      navigate('/shop');
+   };
+
    return (
       <>
          <nav className="flex justify-between p-5 italic navbar container mx-auto w-[80%]">
@@ -52,8 +58,11 @@ export default function Navbar() {
                <li className="capitalize cursor-pointer text-warning">
                   <Link to="/">home</Link>
                </li>
-               <li className="capitalize cursor-pointer hover:text-warning">
-                  <Link to="/shop">shop</Link>
+               <li
+                  onClick={handleClickShopBtn}
+                  className="capitalize cursor-pointer hover:text-warning"
+               >
+                  shop
                </li>
             </ul>
             <div className="w-1/2 text-center uppercase navbar__brand text-title">
@@ -75,7 +84,7 @@ export default function Navbar() {
                      )}
 
                      {isShowCartExpand && (
-                        <div className="shadow-2xl h-[500px] overflow-y-auto absolute cart__expand w-[300px] bg-light p-5 z-10 my-3 translate-x-[150px] right-0">
+                        <div className="shadow-2xl max-h-[500px] min-h-[100px] overflow-y-auto absolute cart__expand w-[300px] bg-light p-5 z-10 my-3 translate-x-[150px] right-0">
                            {cartItems.length > 0 ? (
                               cartItems.map(item => (
                                  <div

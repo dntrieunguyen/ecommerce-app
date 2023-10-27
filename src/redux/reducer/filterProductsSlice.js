@@ -16,5 +16,9 @@ export const filterProductsSlice = createSlice({
       categoryChange: (state, action) => {
          state.category = action.payload;
       },
+
+      DefaultFilter: (state, action) => {
+         state.category = 'all';
+      },
    },
 });
