@@ -10,6 +10,7 @@ export default function Navbar() {
    const [isShowCartExpand, setIsShowCartExpand] = useState(false);
 
    const userOn = useSelector(state => state.userAuth.userOn);
+
    const onLogIn = useSelector(state => state.userAuth.onLogIn);
 
    const cartItems = useSelector(state => state.cart.cartItems);
@@ -31,7 +32,15 @@ export default function Navbar() {
    };
 
    const handleLogoutBtn = () => {
-      dispatch(userAuthSlice.actions.LOGOUT(userOn));
+      const userOut = {
+         email: userOn.email,
+         cartItems: cartItems,
+      };
+
+      if (window.confirm('Are you Sure ?')) {
+         dispatch(userAuthSlice.actions.LOGOUT(userOut));
+         navigate('/userAuth');
+      }
    };
 
    return (

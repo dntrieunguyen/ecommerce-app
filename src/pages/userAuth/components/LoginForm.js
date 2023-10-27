@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userAuthSlice } from '../../../redux/reducer/userAuthSlice';
 import { loginSubmitValidate } from '../../../services/validation';
+import { cartSlice } from '../../../redux/reducer/cartSlice';
 
 export default function LoginForm({ handleShowForm }) {
    const [user, setUser] = useState({
@@ -14,6 +15,7 @@ export default function LoginForm({ handleShowForm }) {
       password: '',
    });
    const userList = useSelector(state => state.userAuth.userList);
+   const userCart = useSelector(state => state.userAuth.userCart);
 
    const dispatch = useDispatch();
 
@@ -53,10 +55,19 @@ export default function LoginForm({ handleShowForm }) {
       if (isValid === false) {
          setUser({ ...user, password: '' });
       }
+      const userCartChange = userCart;
 
       if (isValid) {
+         if (userCartChange.length > 0) {
+            const userCartFilter = userCartChange.find(
+               item => item.email === email,
+            );
+            console.log(userCartFilter);
+            dispatch(
+               cartSlice.actions.UPDATE_CART_LOGIN(userCartFilter.cartItems),
+            );
+         }
          dispatch(userAuthSlice.actions.LOGIN(newUser));
-
          alert('Login Success !!!');
 
          setUser({

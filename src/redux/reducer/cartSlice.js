@@ -151,5 +151,21 @@ export const cartSlice = createSlice({
                : state.cart.subTotal;
          state.cart.total = updateTotal;
       },
+
+      UPDATE_CART_LOGIN: (state, action) => {
+         //handle
+         state.cartItems = action.payload;
+
+         //Total
+         state.cart.subTotal = state.cartItems.reduce((total, item) => {
+            return (total += item.quantity * item.price);
+         }, 0);
+
+         state.cart.amount = state.cartItems.reduce((total, item) => {
+            return (total += item.quantity);
+         }, 0);
+
+         state.cart.total = state.cart.subTotal;
+      },
    },
 });
