@@ -22,19 +22,14 @@ export default function Footer() {
       },
    ];
    return (
-      <footer className="italic bg-black footer text-light">
-         <div className="footer__container container w-[80%] mx-auto grid grid-cols-3 gap-x-3 py-32">
+      <footer className="footer">
+         <div className="footer__container">
             {footerContent.map((item, index) => (
                <div key={index} className="footer__content">
-                  <h2 className="uppercase text-lead">{item.title}</h2>
-                  <div className="pt-4 text-secondary">
+                  <h2>{item.title}</h2>
+                  <div>
                      {item.content.map((content, index) => (
-                        <p
-                           key={index}
-                           className="py-2 cursor-pointer hover:duration-500 hover:text-warning"
-                        >
-                           {content}
-                        </p>
+                        <p key={index}>{content}</p>
                      ))}
                   </div>
                </div>

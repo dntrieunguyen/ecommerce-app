@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../../App.scss';
+
+.messenger__icon {
+   @apply transition-all fixed text-brand right-10 z-10 bottom-80 cursor-pointer hover:scale-150 hover:duration-300;
+}
+
+.chat__container {
+   @extend .slide-in-fwd-br;
+   @apply fixed top-32 rounded-xl shadow-2xl right-32 bg-light p-5 w-[400px] min-h-[400px];
+   .chat__title {
+      @apply flex justify-between border-b-2 items-center pb-5;
+      h4 {
+         @apply font-bold;
+      }
+      span {
+         @apply text-sm bg-slate-200 p-3;
+      }
+   }
+   .chat__display {
+      @apply h-[300px] overflow-y-auto border-b-2;
+      .chat__display__admin {
+         @apply flex justify-end my-5;
+         p {
+            @apply bg-primary p-3 text-light rounded-xl;
+         }
+      }
+      .chat__display__user {
+         @apply flex justify-start my-5 gap-3 items-center;
+         img {
+            @apply w-[40px] h-[40px] p-1 bg-slate-200 rounded-full;
+         }
+         p {
+            @apply bg-secondary p-3  rounded-xl;
+         }
+      }
+   }
+   .chat__input {
+      @apply grid grid-cols-9 my-5 gap-1;
+      img {
+         @apply w-[40px] h-[40px] p-1 bg-slate-200 rounded-full col-start-1;
+      }
+      input {
+         @apply col-start-2 col-span-5 p-3;
+      }
+      .chat__icon__actions {
+         @apply col-start-7 col-span-3 flex items-center justify-evenly text-title;
+      }
+   }
+}

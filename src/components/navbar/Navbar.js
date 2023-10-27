@@ -53,7 +53,7 @@ export default function Navbar() {
 
    return (
       <>
-         <nav className="flex justify-between p-5 italic navbar container mx-auto w-[80%]">
+         <nav className="navbar">
             <ul className="flex items-center w-1/4 gap-3 navbar__page">
                <li className="capitalize cursor-pointer text-warning">
                   <Link to="/">home</Link>
