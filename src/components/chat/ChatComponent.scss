@@ -2,14 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '../../App.scss';
-
 .messenger__icon {
    @apply transition-all fixed text-brand right-10 z-10 bottom-80 cursor-pointer hover:scale-150 hover:duration-300;
 }
 
 .chat__container {
-   @extend .slide-in-fwd-br;
    @apply fixed top-32 rounded-xl shadow-2xl right-32 bg-light p-5 w-[400px] min-h-[400px];
    .chat__title {
       @apply flex justify-between border-b-2 items-center pb-5;

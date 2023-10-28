@@ -12,7 +12,7 @@ export default function ChatWidget() {
 
    return (
       <>
-         <div className="chat__container">
+         <div className="chat__container slide-in-fwd-br">
             <div className="chat__title">
                <h4 className="">Customer Support</h4>
                <span className="">Let's Chat App</span>

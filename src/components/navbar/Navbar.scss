@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '../../App.scss';
-
 nav {
    @apply flex justify-between p-5 italic  container mx-auto w-[80%];
    ul {
