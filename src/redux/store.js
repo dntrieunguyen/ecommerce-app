@@ -1,4 +1,4 @@
-import {  configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { cartSlice } from './reducer/cartSlice';
 import { productSlice } from './reducer/productSlice';
 import { filterProductsSlice } from './reducer/filterProductsSlice';
@@ -31,6 +31,11 @@ const cartPersistConfig = {
    storage,
 };
 
+const productPersistConfig = {
+   key: 'product',
+   storage,
+};
+
 export const store = configureStore({
    reducer: {
       /*
@@ -39,7 +44,7 @@ export const store = configureStore({
         nameReducer_3 : reducerSlice_3.reducer,
         */
       cart: persistReducer(cartPersistConfig, cartSlice.reducer),
-      product: productSlice.reducer,
+      product: persistReducer(productPersistConfig, productSlice.reducer),
       filters: filterProductsSlice.reducer,
       detailProduct: detailProductSlice.reducer,
       popup: showPopSlice.reducer,
