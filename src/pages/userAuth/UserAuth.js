@@ -20,7 +20,9 @@ export default function UserAuth() {
          <div className="user-auth">
             <div className="user-auth__container">
                {onLogIn === true ? (
-                  <span className="">WELCOME {user.name}</span>
+                  <span className="user-auth__message">
+                     WELCOME {user.name}
+                  </span>
                ) : (
                   <>
                      {showAuthForm && (

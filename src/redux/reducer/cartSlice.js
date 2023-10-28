@@ -102,9 +102,13 @@ export const cartSlice = createSlice({
 
          // Xoá item trong cart nếu quantity = 0
          if (updateCartItems[ItemsIndex].quantity === 0) {
-            state.cartItems = updateCartItems.filter(
-               item => item.id !== payload.id,
-            );
+            if (window.confirm('Do you want to delete this product ?')) {
+               state.cartItems = updateCartItems.filter(
+                  item => item.id !== payload.id,
+               );
+            } else {
+               updateCartItems[ItemsIndex].quantity = 1;
+            }
          }
 
          if (updateCartItems[ItemsIndex].quantity !== 0) {
