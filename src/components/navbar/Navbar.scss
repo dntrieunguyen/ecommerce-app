@@ -6,4 +6,7 @@
 
 nav {
    @apply flex justify-between p-5 italic  container mx-auto w-[80%];
+   ul {
+      @apply flex items-center w-1/4 gap-3;
+   }
 }

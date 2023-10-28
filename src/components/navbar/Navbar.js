@@ -54,7 +54,7 @@ export default function Navbar() {
    return (
       <>
          <nav className="navbar">
-            <ul className="flex items-center w-1/4 gap-3 navbar__page">
+            <ul className="navbar__page">
                <li className="capitalize cursor-pointer text-warning">
                   <Link to="/">home</Link>
                </li>
@@ -75,7 +75,7 @@ export default function Navbar() {
                      <FontAwesomeIcon
                         onClick={handleClickCartIcon}
                         icon={faCartShopping}
-                        className="px-3 cursor-pointer transition-all text-secondary hover:text-warning hover:scale-150 hover:duration-300"
+                        className="px-3 transition-all cursor-pointer text-secondary hover:text-warning hover:scale-150 hover:duration-300"
                      ></FontAwesomeIcon>
                      {cart.amount > 0 && (
                         <span className="absolute top-0 -translate-y-1/2 right-0 text-light text-center text-sm rounded-full cart__icon__state w-[15px] p-1 h-[15px]  bg-warning">
