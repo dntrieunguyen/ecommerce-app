@@ -38,15 +38,15 @@ export default function ShopPage() {
    return (
       <>
          <Navbar></Navbar>
-         <section className="shop__container w-[80%] mx-auto">
-            <div className="p-20 bg-orange-100 text-title font-[500] shop__banner">
+         <section className="shop__container ">
+            <div className="shop__banner">
                <h2>SHOP</h2>
             </div>
-            <div className="grid grid-cols-4 gap-10 my-10 shop__content">
+            <div className="shop__content">
                <ShopCategory shopCategory={shopCategory}></ShopCategory>
-               <div className="col-start-2 col-end-5 shop__display">
+               <div className="shop__display">
                   <ShopSearch></ShopSearch>
-                  <div className="grid grid-cols-3 gap-5 my-10 shop__display__item">
+                  <div className="shop__display__item">
                      {productsList &&
                         productsList.map(product => (
                            <Product
@@ -59,9 +59,8 @@ export default function ShopPage() {
                            ></Product>
                         ))}
                   </div>
-                  <div className="flex justify-end shop__pagination">
-                     <ShopPagination></ShopPagination>
-                  </div>
+
+                  <ShopPagination></ShopPagination>
                </div>
             </div>
          </section>

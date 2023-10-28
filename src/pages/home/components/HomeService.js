@@ -8,12 +8,12 @@ export default function HomeService() {
    ];
    return (
       <>
-         <div className="uppercase bg-opacity-10 service bg-secondary">
-            <div className="grid grid-cols-3 gap-5 p-40 service__container">
+         <div className="service">
+            <div className="service__container">
                {serviceContent.map((item, index) => (
                   <div key={(item, index)} className="service__item">
-                     <h2 className="text-title font-[500]">{item.title}</h2>
-                     <h4 className="text-secondary">{item.content}</h4>
+                     <h2>{item.title}</h2>
+                     <h4>{item.content}</h4>
                   </div>
                ))}
             </div>

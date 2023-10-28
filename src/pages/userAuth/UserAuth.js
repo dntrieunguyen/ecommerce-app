@@ -17,12 +17,10 @@ export default function UserAuth() {
    return (
       <>
          <Navbar></Navbar>
-         <div className="bg-center bg-cover user-auth">
-            <div className="relative w-full h-full">
+         <div className="user-auth">
+            <div className="user-auth__container">
                {onLogIn === true ? (
-                  <span className="absolute -translate-x-1/2 -translate-y-1/2 top-1/3 left-1/2 text-brand">
-                     WELCOME {user.name}
-                  </span>
+                  <span className="">WELCOME {user.name}</span>
                ) : (
                   <>
                      {showAuthForm && (

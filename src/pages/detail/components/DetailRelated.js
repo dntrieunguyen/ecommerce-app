@@ -11,10 +11,10 @@ export default function DetailRelated({ category }) {
    };
    return (
       <>
-         <div className="my-20 detail__related">
-            <h2 className="uppercase text-lead">related products</h2>
+         <div className="detail__related">
+            <h2>related products</h2>
 
-            <div className="grid grid-cols-4 gap-10 my-5 detail__related__content">
+            <div className="detail__related__content">
                {product &&
                   product
                      .filter(item => item.category === category)

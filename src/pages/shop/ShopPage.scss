@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.shop__container {
+   @apply w-[80%] mx-auto;
+   .shop__banner {
+      @apply p-20 bg-orange-100 font-[500] text-title;
+   }
+
+   .shop__content {
+      @apply grid grid-cols-4 gap-10 my-10;
+
+      .shop__display {
+         @apply col-start-2 col-end-5;
+
+         .shop__display__item {
+            @apply grid grid-cols-3 gap-5 my-10;
+         }
+         .shop__pagination {
+            @apply flex justify-end;
+            span {
+               @apply px-3;
+            }
+
+            p {
+               @apply items-center px-4 py-2 text-sm font-semibold text-white cursor-pointer bg-dark;
+            }
+         }
+      }
+
+      .shop__category {
+         @apply uppercase;
+
+         h2 {
+            @apply text-lead font-[500] mb-10;
+         }
+
+         h4 {
+            @apply px-6 py-2 bg-dark text-light;
+         }
+
+         p {
+            @apply px-6 py-2 capitalize cursor-pointer text-secondary hover:text-light hover:bg-slate-400;
+         }
+
+         ul {
+            @apply my-3;
+
+            .shop__category__title {
+               @apply px-6 py-2  font-[500] bg-slate-100;
+            }
+
+            li {
+               @apply px-6 py-2 capitalize cursor-pointer text-secondary hover:text-light hover:bg-slate-400;
+            }
+         }
+      }
+   }
+
+   .shop__search {
+      @apply flex items-center justify-between;
+
+      input {
+         @apply p-3 border w-[400px] focus-visible:outline-none;
+      }
+
+      .shop__search__select {
+         select {
+            @apply h-full px-5 py-1 border focus-within:outline-none;
+         }
+      }
+   }
+}

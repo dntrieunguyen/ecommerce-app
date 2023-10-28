@@ -12,7 +12,9 @@ export default function CartItem({ name, price, quantity, total, img, id }) {
    const dispatch = useDispatch();
 
    const handleClickDelBtn = () => {
-      dispatch(cartSlice.actions.DELETE_CART(id));
+      if (window.confirm('Do you want to delete this ?')) {
+         dispatch(cartSlice.actions.DELETE_CART(id));
+      }
    };
 
    const handlePlusQuantityBtn = () => {

@@ -18,26 +18,18 @@ export default function ShopCategory({ shopCategory }) {
 
    return (
       <>
-         <div className="uppercase shop__category">
-            <h2 className="text-lead font-[500] mb-10">categories</h2>
-            <h4 className="px-6 py-2 bg-dark text-light">apple</h4>
-            <p
-               onClick={item => handleClickCategory(item)}
-               className="px-6 py-2 capitalize cursor-pointer text-secondary hover:text-light hover:bg-slate-400"
-            >
-               all
-            </p>
+         <div className="shop__category">
+            <h2>categories</h2>
+            <h4>apple</h4>
+            <p onClick={item => handleClickCategory(item)}>all</p>
 
             {shopCategory.map((cate, index) => (
-               <ul key={index} className="my-3">
-                  <li className="px-6 py-2 bg-slate-100 font-[500]">
-                     {cate.categroy}
-                  </li>
+               <ul key={index}>
+                  <li className="shop__category__title">{cate.categroy}</li>
                   {cate.item.map((item, itemIndex) => (
                      <li
                         onClick={item => handleClickCategory(item)}
                         key={itemIndex}
-                        className="px-6 py-2 capitalize cursor-pointer text-secondary hover:text-light hover:bg-slate-400"
                      >
                         {item}
                      </li>

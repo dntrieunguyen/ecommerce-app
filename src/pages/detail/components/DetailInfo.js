@@ -32,6 +32,7 @@ export default function DetailInfo({ product }) {
          total: quantity * +product.price,
       };
       dispatch(cartSlice.actions.ADD_CART(newCartItems));
+      alert(`Added ${newCartItems.name} To Cart Success !!!`);
 
       setCartItems(newCartItems);
    };
@@ -63,55 +64,44 @@ export default function DetailInfo({ product }) {
 
    return (
       <>
-         <div className="grid grid-cols-2 gap-10 my-10 detail__info">
-            <div className="grid grid-cols-5 gap-5">
-               <img
-                  className="col-span-4 col-start-2"
-                  src={imgDisplay}
-                  alt=""
-               />
-               <div className="flex flex-col col-start-1 row-start-1 gap-5">
+         <div className="detail__info">
+            <div className="detail_img">
+               <img src={imgDisplay} alt="" />
+               <div className="detail_img__container">
                   <img
                      onClick={e => handleChangeImg(e)}
                      src={product?.img2}
                      alt=""
-                     className="cursor-pointer"
                   />
                   <img
                      onClick={e => handleChangeImg(e)}
                      src={product?.img3}
                      alt=""
-                     className="cursor-pointer"
                   />
                   <img
                      onClick={e => handleChangeImg(e)}
                      src={product?.img4}
                      alt=""
-                     className="cursor-pointer"
                   />
                </div>
             </div>
             <div className=" detail__info__content">
-               <h2 className="uppercase text-brand font-[500]">
-                  {product?.name}
-               </h2>
-               <p className="my-10 text-lead text-secondary">
+               <h2>{product?.name}</h2>
+               <p>
                   {product?.price
                      .toString()
                      .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
                   VND
                </p>
-               <p className="text-justify text-content text-secondary">
-                  {product?.short_desc}
-               </p>
-               <div className="flex my-10 detail__info__category">
-                  <h4 className="pe-3 font-[500] uppercase">category: </h4>
-                  <p className="uppercase">{product?.category}</p>
+               <p>{product?.short_desc}</p>
+               <div className="detail__info__category">
+                  <h4>category: </h4>
+                  <p>{product?.category}</p>
                </div>
-               <div className="flex detail__info__action">
-                  <div className="border detail__input w-[35rem] flex justify-between">
-                     <span className="p-3 text-secondary">QUANTITY</span>
-                     <div className="flex items-center gap-5 px-3">
+               <div className="detail__info__action">
+                  <div className="detail__input">
+                     <span>QUANTITY</span>
+                     <div>
                         <FontAwesomeIcon
                            onClick={handleMinusItems}
                            className="cursor-pointer hover:text-warning"

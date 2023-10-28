@@ -7,23 +7,20 @@ export default function CheckOutTotal() {
 
    return (
       <>
-         <h2 className="text-title font-[500]">YOUR ORDER</h2>
+         <h2>YOUR ORDER</h2>
          {cartItems.map(item => (
-            <div
-               key={item.id}
-               className="flex justify-between my-5 border-b checkout__items text-[12px]"
-            >
-               <h4 className="font-[500] flex-1">{item.name}</h4>
-               <p className="px-3 text-secondary flex-2">
+            <div key={item.id} className="checkout__items">
+               <h4>{item.name}</h4>
+               <p>
                   {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
-                  <span className="">x {item.quantity}</span>
+                  <span>x {item.quantity}</span>
                </p>
             </div>
          ))}
 
-         <div className="flex justify-between my-5 checkout__items__total">
-            <h4 className="font-[500]">TOTAL</h4>
-            <p className="px-3 text-secondary">
+         <div className="checkout__items__total">
+            <h4>TOTAL</h4>
+            <p>
                {cartTotal.total
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}

@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.detail {
+   @apply w-[80%] mx-auto;
+
+   .detail__info {
+      @apply grid grid-cols-2 gap-10 my-10;
+
+      .detail_img {
+         @apply grid grid-cols-5 gap-5;
+
+         img {
+            @apply col-span-4 col-start-2;
+         }
+         .detail_img__container {
+            @apply flex flex-col col-start-1 row-start-1 gap-5;
+            img {
+               @apply cursor-pointer;
+            }
+         }
+      }
+
+      .detail__info__content {
+         h2 {
+            @apply text-brand font-[500] uppercase;
+         }
+
+         p:nth-of-type(1) {
+            @apply my-10 text-lead text-secondary;
+         }
+
+         p:nth-of-type(2) {
+            @apply text-justify text-content text-secondary;
+         }
+
+         .detail__info__category {
+            @apply flex my-10;
+
+            h4 {
+               @apply pe-3 font-[500] uppercase;
+            }
+
+            p {
+               @apply uppercase m-0 text-content;
+            }
+         }
+
+         .detail__info__action {
+            @apply flex;
+
+            .detail__input {
+               @apply border  w-[35rem] flex justify-between;
+
+               span {
+                  @apply p-3 text-secondary;
+               }
+               div {
+                  @apply flex items-center gap-5 px-3;
+               }
+            }
+         }
+      }
+   }
+
+   .detail__desc {
+      @apply my-10;
+
+      .detail__desc__title {
+         @apply uppercase;
+
+         h2 {
+            @apply my-5 text-lead;
+         }
+      }
+
+      .detail__desc__content {
+         @apply text-secondary;
+         p {
+            @apply w-full;
+         }
+      }
+   }
+   .detail__related {
+      @apply my-20;
+
+      h2 {
+         @apply uppercase text-lead;
+      }
+
+      .detail__related__content {
+         @apply grid grid-cols-4 gap-10 my-5;
+      }
+   }
+}

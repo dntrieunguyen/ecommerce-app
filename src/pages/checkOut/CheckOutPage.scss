@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.checkout {
+   .checkout__content {
+      @apply w-[80%] mx-auto my-10;
+
+      h2 {
+         @apply font-[500] text-title my-10;
+      }
+      .checkout__detail {
+         @apply grid grid-cols-3 gap-10;
+
+         .checkout__form {
+            @apply col-span-2;
+
+            form {
+               div {
+                  @apply flex flex-col items-start mb-5 gap-y-3;
+
+                  label {
+                     @apply cursor-pointer text-secondary;
+                  }
+
+                  input {
+                     @apply w-full p-4 bg-transparent border border-gray-200 rounded-lg outline-none;
+                  }
+               }
+            }
+         }
+      }
+
+      .checkout__total {
+         @apply col-start-3 p-10  bg-slate-100 h-fit;
+      }
+   }
+
+   .checkout__banner {
+      @apply p-20 bg-slate-100;
+
+      .checkout__contaniner {
+         @apply w-[80%] mx-auto flex justify-between items-center;
+
+         h2 {
+            @apply font-[500] text-title;
+         }
+      }
+
+      ul {
+         @apply flex;
+
+         li {
+            @apply hover:text-warning font-[500] cursor-pointer;
+            span {
+               @apply px-3;
+            }
+         }
+
+         li:last-of-type {
+            @apply cursor-pointer hover:text-warning text-secondary;
+         }
+      }
+   }
+
+   .checkout__total {
+      h2 {
+         @apply font-[500] text-title;
+      }
+
+      .checkout__items {
+         @apply flex justify-between my-5 text-[12px] border-b;
+
+         h4 {
+            flex: 3;
+            font-weight: 500;
+         }
+
+         p {
+            @apply text-secondary flex-1 px-3;
+         }
+      }
+
+      .checkout__items__total {
+         @apply flex justify-between my-5;
+
+         h4 {
+            font-weight: 500;
+         }
+
+         p {
+            @apply px-3 text-secondary;
+         }
+      }
+   }
+}

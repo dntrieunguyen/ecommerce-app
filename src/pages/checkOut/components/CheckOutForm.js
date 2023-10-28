@@ -53,20 +53,11 @@ export default function CheckOutForm() {
       <>
          <form onSubmit={handleSubmit}>
             {checkOutForm.map((item, index) => (
-               <div
-                  key={index}
-                  className="flex flex-col items-start mb-5 gap-y-3"
-               >
-                  <label
-                     htmlFor={item.type}
-                     className="cursor-pointer text-secondary "
-                  >
-                     {item.name}:
-                  </label>
+               <div key={index}>
+                  <label htmlFor={item.type}>{item.name}:</label>
                   <input
                      id={item.type}
                      type={item.type}
-                     className="w-full p-4 bg-transparent border border-gray-200 rounded-lg outline-none"
                      placeholder={item.placeholder}
                      value={checkOutUser[item.type]}
                      onChange={e => handleChange(e, item)}

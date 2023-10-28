@@ -1,3 +1,119 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+section {
+   @apply container w-[80%] mx-auto;
+
+   .banner {
+      @apply bg-slate-200 h-1/2 relative;
+      img {
+         @apply h-[450px] w-full;
+      }
+
+      .banner__content {
+         @apply absolute -translate-y-1/2 top-1/2 left-[5%] uppercase;
+
+         h4 {
+            @apply text-secondary;
+         }
+
+         h2 {
+            @apply mt-5 text-brand;
+         }
+
+         button {
+            @apply px-8 py-4 mt-10 uppercase bg-dark text-light;
+         }
+      }
+   }
+
+   .subcribe {
+      @apply flex justify-between my-20;
+
+      .subcribe__title {
+         h2 {
+            @apply text-lead font-[500] uppercase;
+         }
+
+         h4 {
+            @apply text-secondary;
+         }
+      }
+
+      .subscribe__action {
+         input {
+            @apply w-[400px] h-full px-5 border border-slate-200 focus-visible:outline-none;
+         }
+
+         button {
+            @apply h-full px-8 py-4 uppercase bg-dark text-light;
+         }
+      }
+   }
+
+   .category {
+      .category__title {
+         @apply mt-10 text-center uppercase;
+
+         h4 {
+            @apply text-secondary;
+         }
+
+         h2 {
+            @apply text-lead;
+         }
+      }
+      .category__img--big {
+         @apply grid grid-cols-2 gap-10 mt-10;
+
+         img {
+            @apply h-[450px/3] w-full transition-all hover:opacity-50 hover:duration-500 cursor-pointer;
+         }
+      }
+      .category__img--small {
+         @apply grid grid-cols-3 gap-10 mt-10;
+
+         img {
+            @apply h-[450px/3] transition-all w-full hover:opacity-50 hover:duration-500 cursor-pointer;
+         }
+      }
+   }
+
+   .toptrend {
+      @apply my-10;
+      .toptrend__title {
+         @apply uppercase;
+
+         h4 {
+            @apply text-secondary;
+         }
+
+         h2 {
+            @apply text-lead;
+         }
+      }
+
+      .toptrend__content {
+         @apply grid grid-cols-4 gap-5;
+      }
+   }
+
+   .service {
+      @apply uppercase bg-opacity-10  bg-secondary;
+
+      .service__container {
+         @apply grid grid-cols-3 gap-5 p-40;
+
+         .service__item {
+            h2 {
+               @apply font-[500] text-title;
+            }
+
+            h4 {
+               @apply text-secondary;
+            }
+         }
+      }
+   }
+}

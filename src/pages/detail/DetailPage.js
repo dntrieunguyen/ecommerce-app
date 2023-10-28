@@ -14,7 +14,7 @@ export default function DetailPage() {
    return (
       <>
          <Navbar></Navbar>
-         <div className="detail w-[80%] mx-auto">
+         <div className="detail">
             <DetailInfo product={product}></DetailInfo>
             <DetailDesc product={product}></DetailDesc>
             {product && (

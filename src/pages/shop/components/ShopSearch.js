@@ -14,20 +14,15 @@ export default function ShopSearch() {
    };
    return (
       <>
-         <div className="flex items-center justify-between shop__search">
+         <div className="shop__search">
             <input
-               className="p-3 border focus-visible:outline-none w-[400px]"
                type="text"
                placeholder="Enter Search Here!"
                value={searchInput}
                onChange={handleSearchInputOnChange}
             />
             <div className="shop__search__select">
-               <select
-                  id="currency"
-                  name="currency"
-                  className="h-full px-5 py-1 border focus-within:outline-none"
-               >
+               <select id="currency" name="currency">
                   <option>Default Sort</option>
                </select>
             </div>
