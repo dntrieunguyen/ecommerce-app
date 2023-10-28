@@ -14,22 +14,21 @@ export default function ChatWidget() {
       <>
          <div className="chat__container slide-in-fwd-br">
             <div className="chat__title">
-               <h4 className="">Customer Support</h4>
-               <span className="">Let's Chat App</span>
+               <h4>Customer Support</h4>
+               <span>Let's Chat App</span>
             </div>
             <div className="chat__display">
                <div className="chat__display__admin ">
-                  <p className="">Hello</p>
+                  <p>Hello</p>
                </div>
                <div className="chat__display__user">
-                  <img src={imgIcon} className="" alt="" />
-                  <p className="">Hello</p>
+                  <img src={imgIcon} alt="" />
+                  <p>Hello</p>
                </div>
             </div>
             <div className="chat__input">
-               <img src={imgIcon} className="" alt="" />
+               <img src={imgIcon} alt="" />
                <input
-                  className=""
                   placeholder="Enter Message ..."
                   type="text"
                   name=""
