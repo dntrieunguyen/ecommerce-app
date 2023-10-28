@@ -39,35 +39,34 @@ export default function CartTotal() {
    };
    return (
       <>
-         <div className="col-start-3 p-10 cart__total bg-slate-100 h-fit">
-            <h2 className="text-title font-[500]">CART TOTAL</h2>
+         <div className="cart__total">
+            <h2>CART TOTAL</h2>
 
-            <div className="flex justify-between my-5 border-b cart__items__total">
-               <h4 className="font-[500]">SUBTOTAL</h4>
-               <p className="px-3 text-secondary">
+            <div className="cart__items__subtotal">
+               <h4>SUBTOTAL</h4>
+               <p>
                   {cart.subTotal
                      .toString()
                      .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
                   VND
                </p>
             </div>
-            <div className="flex justify-between my-5 cart__items__total">
-               <h4 className="font-[500]">TOTAL</h4>
-               <p className="px-3 text-secondary">
+            <div className="cart__items__total">
+               <h4>TOTAL</h4>
+               <p>
                   {cart.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}{' '}
                   VND
                </p>
             </div>
 
             <div className="cart_items_action">
-               <form className="" aria-label="simple-form">
+               <form aria-label="simple-form">
                   <input
                      ref={couponTextRef}
                      type="text"
                      value={couponText}
                      onChange={handleApplyCouponChange}
                      placeholder="Enter your coupon"
-                     className="w-full p-3 rounded-lg outline-none"
                   />
 
                   <span
@@ -78,10 +77,7 @@ export default function CartTotal() {
                      Discount Code Không tồn tại
                   </span>
 
-                  <button
-                     onClick={handleApplyCouponBtn}
-                     className="w-full px-5 py-3 mt-3 text-white"
-                  >
+                  <button onClick={handleApplyCouponBtn}>
                      <FontAwesomeIcon icon={faGift} /> Apply coupon
                   </button>
                </form>

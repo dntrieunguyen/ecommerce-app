@@ -31,31 +31,27 @@ export default function CartItem({ name, price, quantity, total, img, id }) {
    };
    return (
       <>
-         <tr className="text-center bg-white border-b">
-            <td className="px-6 py-4">
-               <img src={img} width="50px" alt="" className="mx-auto" />
+         <tr>
+            <td>
+               <img src={img} width="50px" alt="" />
             </td>
-            <th className="px-6 py-4">{name}</th>
-            <td className="px-6 py-4">
-               {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-            </td>
-            <td className="px-6 py-4">
+            <th>{name}</th>
+            <td>{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</td>
+            <td>
                <FontAwesomeIcon
                   onClick={handleMinusQuantityBtn}
                   icon={faBackward}
                   className="cursor-pointer hover:text-warning"
                />
-               <span className="px-3">{quantity}</span>
+               <span className="px-2">{quantity}</span>
                <FontAwesomeIcon
                   onClick={handlePlusQuantityBtn}
                   icon={faForward}
                   className="cursor-pointer hover:text-warning"
                />
             </td>
-            <td className="px-6 py-4">
-               {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-            </td>
-            <td className="px-6 py-4 text-center ">
+            <td>{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</td>
+            <td>
                <FontAwesomeIcon
                   onClick={handleClickDelBtn}
                   icon={faTrash}

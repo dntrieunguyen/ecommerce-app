@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.product {
+   img {
+      @apply h-[300px] hover:opacity-50 hover:duration-500 cursor-pointer transition-all;
+   }
+   .product__content {
+      @apply text-center;
+
+      h4 {
+         @apply font-[600];
+      }
+
+      p {
+         @apply text-secondary;
+      }
+   }
+}

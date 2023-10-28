@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.pop__containter {
+   @apply absolute flex items-center justify-center w-full h-full -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2;
+   .overplay {
+      @apply absolute w-full h-full bg-[rgba(0,0,0,0.3)]  transition-all;
+   }
+
+   .pop__content {
+      @apply w-[700px] bg-white grid grid-cols-2  z-10;
+
+      img {
+         @apply h-[450px] p-10;
+      }
+      .pop__itemInfo {
+         @apply relative flex flex-col justify-between p-10;
+         h4 {
+            @apply font-[600] text-title;
+         }
+
+         p:nth-of-type(1) {
+            @apply py-5 text-secondary;
+         }
+         p:nth-of-type(2) {
+            @apply text-justify h-[200px] overflow-y-auto pe-3;
+         }
+         .pop__button {
+            @apply mt-5;
+            button {
+               @apply h-fit;
+            }
+         }
+         .pop__closeBtn {
+            @apply absolute cursor-pointer top-2 right-5  hover:text-warning;
+         }
+      }
+   }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { detailProductSlice } from '../../redux/reducer/detailProductSlice';
+import './Product.scss';
 
 export default function Product(props) {
    const dispatch = useDispatch();
@@ -19,16 +20,11 @@ export default function Product(props) {
    return (
       <>
          <div className="product scale-in-center">
-            <img
-               onClick={handleClickProduct}
-               src={props?.img1}
-               className="h-[300px] hover:opacity-50 hover:duration-500 cursor-pointer transition-all"
-               alt=""
-            />
+            <img onClick={handleClickProduct} src={props?.img1} alt="" />
 
-            <div className="text-center product__content">
-               <h4 className="font-[600]">{props.name}</h4>
-               <p className="text-secondary">
+            <div className=" product__content">
+               <h4>{props.name}</h4>
+               <p>
                   {props.price &&
                      `${props.price
                         .toString()

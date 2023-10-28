@@ -11,10 +11,10 @@ export default function CartPage() {
          <Navbar></Navbar>
          <div className="cart">
             <CartBanner></CartBanner>
-            <div className="cart__content w-[80%] mx-auto my-10">
-               <h2 className="font-[500] text-title my-10">SHOPPING CART</h2>
-               <div className="grid grid-cols-3 gap-10 cart__detail">
-                  <div className="col-span-2 ">
+            <div className="cart__content ">
+               <h2>SHOPPING CART</h2>
+               <div className="cart__detail">
+                  <div>
                      <CartTable></CartTable>
                   </div>
                   <CartTotal></CartTotal>

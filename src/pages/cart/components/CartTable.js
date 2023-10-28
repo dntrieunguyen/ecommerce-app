@@ -20,11 +20,11 @@ export default function CartTable() {
 
    return (
       <>
-         <table className="w-full text-left text-gray-500">
-            <thead className="text-center text-gray-700 uppercase bg-gray-50">
+         <table>
+            <thead>
                <tr>
                   {headTableCart.map((item, index) => (
-                     <th key={index} scope="col" className="px-6 py-3">
+                     <th key={index} scope="col">
                         {item}
                      </th>
                   ))}
@@ -44,26 +44,24 @@ export default function CartTable() {
                      ></CartItem>
                   ))
                ) : (
-                  <tr>
-                     <td colSpan={6} className="py-3 text-center">
-                        Chưa có sản phẩm nào trong giỏ hàng
-                     </td>
+                  <tr className="cart__message">
+                     <td colSpan={6}>Chưa có sản phẩm nào trong giỏ hàng</td>
                   </tr>
                )}
             </tbody>
             <tfoot>
-               <tr className="h-[50px] bg-slate-100 ">
-                  <td colSpan={3} className="h-full p-10 ">
+               <tr>
+                  <td colSpan={3}>
                      <Link to="/shop">
-                        <span className="cursor-pointer hover:text-warning hover:font-medium">
+                        <span>
                            <FontAwesomeIcon icon={faArrowLeft} /> Continue
                            shopping
                         </span>
                      </Link>
                   </td>
-                  <td colSpan={3} className="h-full p-10 text-right">
+                  <td colSpan={3}>
                      <Link to="/checkout">
-                        <span className="p-3 border cursor-pointer border-dark hover:bg-black hover:text-light hover:duration-300 hover:font-medium">
+                        <span>
                            Proceed to check out{' '}
                            <FontAwesomeIcon icon={faArrowRight} />
                         </span>

@@ -55,77 +55,55 @@ export default function Navbar() {
       <>
          <nav className="navbar">
             <ul className="navbar__page">
-               <li className="capitalize cursor-pointer text-warning">
+               <li>
                   <Link to="/">home</Link>
                </li>
-               <li
-                  onClick={handleClickShopBtn}
-                  className="capitalize cursor-pointer hover:text-warning"
-               >
-                  shop
-               </li>
+               <li onClick={handleClickShopBtn}>shop</li>
             </ul>
-            <div className="w-1/2 text-center uppercase navbar__brand text-title">
-               boutique
-            </div>
+            <div className="navbar__brand">boutique</div>
 
-            <ul className="flex items-center justify-end w-1/4 gap-3 navbar__info">
-               <li className="flex capitalize ">
-                  <div className="relative cart__icon">
+            <ul className="navbar__info">
+               <li>
+                  <div className=" cart__icon">
                      <FontAwesomeIcon
                         onClick={handleClickCartIcon}
                         icon={faCartShopping}
                         className="px-3 transition-all cursor-pointer text-secondary hover:text-warning hover:scale-150 hover:duration-300"
                      ></FontAwesomeIcon>
                      {cart.amount > 0 && (
-                        <span className="absolute top-0 -translate-y-1/2 right-0 text-light text-center text-sm rounded-full cart__icon__state w-[15px] p-1 h-[15px]  bg-warning">
-                           {cart.amount}
-                        </span>
+                        <span className="cart__icon__state">{cart.amount}</span>
                      )}
 
                      {isShowCartExpand && (
-                        <div className="shadow-2xl max-h-[500px] min-h-[100px] overflow-y-auto absolute cart__expand w-[300px] bg-light p-5 z-10 my-3 translate-x-[150px] right-0">
+                        <div className="cart__expand">
                            {cartItems.length > 0 ? (
                               cartItems.map(item => (
                                  <div
                                     onClick={handleClickCartExpandItem}
-                                    className="py-3 border-b-2 cursor-pointer hover:shadow-xl"
+                                    className="cart__expand__container"
                                  >
                                     <div
                                        key={item.id}
-                                       className="grid grid-cols-4 gap-5 mb-5 cart__expand__items"
+                                       className=" cart__expand__items"
                                     >
-                                       <img
-                                          className="w-[90px] h-[90px]"
-                                          src={item.img}
-                                          alt=""
-                                       />
-                                       <h4 className="p-3 font-[600] col-span-2 flex items-center justify-center">
-                                          {item.name}
-                                       </h4>
-                                       <span className="flex items-center justify-center col-start-4 p-3">
-                                          x {item.quantity}
-                                       </span>
+                                       <img src={item.img} alt="" />
+                                       <h4>{item.name}</h4>
+                                       <span>x {item.quantity}</span>
                                     </div>
                                  </div>
                               ))
                            ) : (
-                              <span className="">
+                              <span>
                                  Chưa có sản phẩm nào trong nào giỏ hàng
                               </span>
                            )}
                         </div>
                      )}
                   </div>
-                  <p
-                     className="cursor-pointer hover:text-warning"
-                     onClick={handleClickCartText}
-                  >
-                     cart
-                  </p>
+                  <p onClick={handleClickCartText}>cart</p>
                </li>
 
-               <li className="capitalize cursor-pointer">
+               <li>
                   <FontAwesomeIcon
                      onClick={() => navigate('/userAuth')}
                      icon={faUser}
@@ -136,12 +114,7 @@ export default function Navbar() {
 
                {onLogIn && (
                   <>
-                     <li
-                        onClick={handleLogoutBtn}
-                        className="capitalize cursor-pointer hover:text-warning"
-                     >
-                        (Logout)
-                     </li>
+                     <li onClick={handleLogoutBtn}>(Logout)</li>
                   </>
                )}
             </ul>
