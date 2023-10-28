@@ -19,6 +19,7 @@ export const filterProductsSlice = createSlice({
 
       DefaultFilter: (state, action) => {
          state.category = 'all';
+         state.searchInput = '';
       },
    },
 });
