@@ -1,7 +1,3 @@
-# Visit demo app here
-
-https://ecommerce-app-git-master-yosefs-projects.vercel.app/
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
