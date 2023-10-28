@@ -7,7 +7,7 @@
 }
 
 .chat__container {
-   @apply fixed top-32 rounded-xl shadow-2xl right-32 bg-light p-5 w-[400px] min-h-[400px];
+   @apply fixed top-32 rounded-xl shadow-2xl right-32 bg-light  w-[400px] min-h-[400px] p-5;
    .chat__title {
       @apply flex justify-between border-b-2 items-center pb-5;
       h4 {
