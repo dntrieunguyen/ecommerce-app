@@ -80,14 +80,14 @@
             @apply col-start-3 p-10  bg-slate-100 h-fit;
 
             h2 {
-               @apply text-title font-[500];
+               @apply text-title font-[500] text-title;
             }
 
             .cart__items__subtotal {
                @apply flex justify-between my-5 border-b;
 
                h4 {
-                  @apply font-[500];
+                  font-weight: 500;
                }
 
                p {
@@ -99,7 +99,7 @@
                @apply flex justify-between my-5;
 
                h4 {
-                  @apply font-[500];
+                  font-weight: 500;
                }
 
                p {
