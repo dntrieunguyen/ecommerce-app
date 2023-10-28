@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .navbar {
-   @apply flex justify-between p-5 italic  container mx-auto w-[80%];
+   @apply flex justify-between p-5 italic  container  w-[80%] mx-auto;
 
    .navbar__page {
       @apply flex items-center w-1/4 gap-3;
@@ -41,7 +41,8 @@
                   .cart__expand__items {
                      @apply grid grid-cols-4 gap-5 mb-5;
                      img {
-                        @apply w-[90px] h-[90px];
+                        width: 90px;
+                        height: 90px;
                      }
                      h4 {
                         @apply p-3 font-[600] col-span-2 flex items-center justify-center;
