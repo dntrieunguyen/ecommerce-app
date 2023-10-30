@@ -108,6 +108,10 @@ export const cartSlice = createSlice({
                );
             } else {
                updateCartItems[ItemsIndex].quantity = 1;
+
+               updateCartItems[ItemsIndex].total =
+                  updateCartItems[ItemsIndex].quantity *
+                  updateCartItems[ItemsIndex].price;
             }
          }
 
