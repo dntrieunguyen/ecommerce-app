@@ -34,7 +34,15 @@ export default function HomeTopTrend() {
    const handleClickProduct = () => {
       // Xử lý khi click sản phẩm
       dispatch(showPopSlice.actions.SHOW_POPUP(true)); // Gửi action để hiển thị popup
-      window.scrollTo({ top: 1100, behavior: 'smooth' }); // Di chuyển đến vị trí cụ thể trên trang một cách mượt mà
+      const popContainer =
+         document.getElementsByClassName('pop__containter')[0];
+
+      if (popContainer) {
+         window.scrollTo({
+            top: popContainer.offsetTop,
+            behavior: 'smooth',
+         }); // Di chuyển đến vị trí cụ thể trên trang một cách mượt mà
+      }
    };
 
    return (
@@ -46,7 +54,7 @@ export default function HomeTopTrend() {
             </div>
             <div className="toptrend__content">
                {productsList &&
-                  productsList.map(product => (
+                  productsList.slice(0, 8).map(product => (
                      <Suspense key={product._id.$oid}>
                         <Product
                            id={product._id.$oid}
