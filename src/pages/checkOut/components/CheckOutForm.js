@@ -6,7 +6,8 @@ export default function CheckOutForm() {
       email: '',
       phone: '',
       address: '',
-   });
+   }); // Khai báo state 'checkOutUser' và hàm 'setCheckOutUser' để quản lý thông tin người dùng khi thanh toán
+
    const checkOutForm = [
       {
          name: 'FULL NAME',
@@ -28,25 +29,26 @@ export default function CheckOutForm() {
          placeholder: 'Enter your address...',
          type: 'address',
       },
-   ];
+   ]; // Mảng 'checkOutForm' chứa thông tin về các trường nhập trong form thanh toán
 
    const handleChange = (e, item) => {
+      // Xử lý khi giá trị nhập vào các trường thay đổi
       setCheckOutUser({
          ...checkOutUser,
          [item.type]: e.target.value,
-      });
+      }); // Cập nhật state 'checkOutUser' với thông tin người dùng mới, sử dụng cú pháp spread và dynamic key để cập nhật giá trị cho trường tương ứng
    };
 
    const handleSubmit = e => {
       e.preventDefault();
+      // Xử lý khi nhấp vào nút gửi form
 
-      console.log(checkOutUser); // Log the result of checkOutUser
       setCheckOutUser({
          name: '',
          email: '',
          phone: '',
          address: '',
-      });
+      }); // Xóa thông tin người dùng sau khi gửi form thành công
    };
 
    return (

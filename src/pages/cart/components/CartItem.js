@@ -4,31 +4,34 @@ import {
    faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { cartSlice } from '../../../redux/reducer/cartSlice';
 
 export default function CartItem({ name, price, quantity, total, img, id }) {
-   const dispatch = useDispatch();
+   const dispatch = useDispatch(); // Dispatch các action đến Redux store
 
    const handleClickDelBtn = () => {
+      // Xử lý khi nhấp vào nút xóa
       if (window.confirm('Do you want to delete this ?')) {
-         dispatch(cartSlice.actions.DELETE_CART(id));
+         // Xác nhận người dùng muốn xóa
+         dispatch(cartSlice.actions.DELETE_CART(id)); // Gửi action DELETE_CART với ID của mặt hàng cần xóa
       }
    };
 
    const handlePlusQuantityBtn = () => {
-      //handle
-      const newQuantity = quantity + 1;
-      dispatch(cartSlice.actions.UPPDATE_CART({ quantity: newQuantity, id }));
+      // Xử lý khi nhấp vào nút tăng số lượng
+      const newQuantity = quantity + 1; // Tăng số lượng lên 1 đơn vị
+      dispatch(cartSlice.actions.UPPDATE_CART({ quantity: newQuantity, id })); // Gửi action UPPDATE_CART với số lượng mới và ID của mặt hàng
    };
+
    const handleMinusQuantityBtn = () => {
-      //handle
+      // Xử lý khi nhấp vào nút giảm số lượng
       if (quantity > 0) {
-         const newQuantity = quantity - 1;
+         // Kiểm tra số lượng hiện tại lớn hơn 0
+         const newQuantity = quantity - 1; // Giảm số lượng đi 1 đơn vị
          dispatch(
             cartSlice.actions.UPPDATE_CART({ quantity: newQuantity, id }),
-         );
+         ); // Gửi action UPPDATE_CART với số lượng mới và ID của mặt hàng
       }
    };
    return (

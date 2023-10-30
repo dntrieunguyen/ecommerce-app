@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { filterProductsSlice } from '../../../redux/reducer/filterProductsSlice';
 
 export default function ShopCategory({ shopCategory }) {
-   const [isActive, setIsActive] = useState(false);
    const [category, setCategory] = useState('all');
 
    const dispatch = useDispatch();

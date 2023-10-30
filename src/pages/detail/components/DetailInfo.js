@@ -6,7 +6,8 @@ import { cartSlice } from '../../../redux/reducer/cartSlice';
 import { detailProductSlice } from '../../../redux/reducer/detailProductSlice';
 
 export default function DetailInfo({ product }) {
-   const imgDisplay = useSelector(state => state.detailProduct.img);
+   const imgDisplay = useSelector(state => state.detailProduct.img); // Lấy đường dẫn hình ảnh hiển thị từ Redux store
+
    const [carItems, setCartItems] = useState({
       id: '',
       img: '',
@@ -14,14 +15,15 @@ export default function DetailInfo({ product }) {
       price: 0,
       quantity: 0,
       total: 0,
-   });
+   }); // Khai báo state 'carItems' và hàm 'setCartItems' để quản lý thông tin về sản phẩm trong giỏ hàng
 
-   const [quantity, setQuantity] = useState(1);
+   const [quantity, setQuantity] = useState(1); // Khai báo state 'quantity' và hàm 'setQuantity' để quản lý số lượng sản phẩm
 
-   const dispatch = useDispatch();
+   const dispatch = useDispatch(); // Dispatch các action đến Redux store
 
    const handleAddtoCartBtn = () => {
-      //handle
+      // Xử lý khi nhấp vào nút thêm vào giỏ hàng
+      // Xử lý khác (nếu có)
 
       const newCartItems = {
          id: product._id.$oid,
@@ -30,36 +32,42 @@ export default function DetailInfo({ product }) {
          price: +product.price,
          quantity: quantity,
          total: quantity * +product.price,
-      };
-      dispatch(cartSlice.actions.ADD_CART(newCartItems));
-      alert(`Added ${newCartItems.name} To Cart Success !!!`);
+      }; // Tạo thông tin về sản phẩm mới trong giỏ hàng
 
-      setCartItems(newCartItems);
+      dispatch(cartSlice.actions.ADD_CART(newCartItems)); // Gửi action ADD_CART với thông tin về sản phẩm mới để thêm vào giỏ hàng
+      alert(`Added ${newCartItems.name} To Cart Success !!!`); // Hiển thị thông báo thành công
+
+      setCartItems(newCartItems); // Cập nhật state 'cartItems' với thông tin về sản phẩm mới
    };
 
    const handlePlusItems = () => {
-      //handle
-      const newQuantity = quantity + 1;
+      // Xử lý khi nhấp vào nút tăng số lượng sản phẩm
+      // Xử lý khác (nếu có)
+      const newQuantity = quantity + 1; // Tăng số lượng lên 1 đơn vị
 
-      setQuantity(newQuantity);
+      setQuantity(newQuantity); // Cập nhật state 'quantity' với số lượng mới
    };
+
    const handleMinusItems = () => {
-      //handle
+      // Xử lý khi nhấp vào nút giảm số lượng sản phẩm
+      // Xử lý khác (nếu có)
       if (quantity > 1) {
-         const newQuantity = quantity - 1;
-         setQuantity(newQuantity);
+         // Kiểm tra số lượng hiện tại lớn hơn 1
+         const newQuantity = quantity - 1; // Giảm số lượng đi 1 đơn vị
+         setQuantity(newQuantity); // Cập nhật state 'quantity' với số lượng mới
       }
    };
 
    const handleChangeImg = e => {
-      //handle
-      const newImgDisplay = e.target.currentSrc;
+      // Xử lý khi hình ảnh hiển thị thay đổi
+      // Xử lý khác (nếu có)
+      const newImgDisplay = e.target.currentSrc; // Lấy đường dẫn mới của hình ảnh hiển thị từ sự kiện thay đổi
       dispatch(
          detailProductSlice.actions.updateProductID({
             productID: product._id.$oid,
             img: newImgDisplay,
          }),
-      );
+      ); // Gửi action updateProductID với thông tin về ID sản phẩm và đường dẫn mới của hình ảnh để cập nhật hình ảnh hiển thị
    };
 
    return (

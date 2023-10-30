@@ -9,41 +9,52 @@ export default function RegisterForm({ handleShowForm }) {
       email: '',
       password: '',
       phone: '',
-   });
+   }); // Khai báo state 'newUser' và hàm 'setNewUser' để quản lý thông tin người dùng mới (name, email, password, phone)
 
-   const userList = useSelector(state => state.userAuth.userList);
+   const userList = useSelector(state => state.userAuth.userList); // Lấy danh sách người dùng từ Redux store
 
-   const dispatch = useDispatch();
+   const dispatch = useDispatch(); // Dispatch các action đến Redux store
 
    const handleNameChange = e => {
+      // Xử lý khi giá trị name thay đổi
       const value = e.target.value;
-      setNewUser({ ...newUser, name: value });
+      setNewUser({ ...newUser, name: value }); // Cập nhật state 'newUser' với giá trị name mới
+
       if (value.trim().length > 0) {
-         setErrorMessage({ ...errorMessage, name: '' });
+         setErrorMessage({ ...errorMessage, name: '' }); // Xóa thông báo lỗi cho trường name nếu giá trị name không rỗng
       }
       // console.log('name >>>', value);
    };
+
    const handleEmailChange = e => {
+      // Xử lý khi giá trị email thay đổi
       const value = e.target.value;
-      setNewUser({ ...newUser, email: value });
+      setNewUser({ ...newUser, email: value }); // Cập nhật state 'newUser' với giá trị email mới
+
       if (value.trim().length > 0) {
-         setErrorMessage({ ...errorMessage, email: '' });
+         setErrorMessage({ ...errorMessage, email: '' }); // Xóa thông báo lỗi cho trường email nếu giá trị email không rỗng
       }
       // console.log('email >>>', value);
    };
+
    const handlePasswordChange = e => {
+      // Xử lý khi giá trị password thay đổi
       const value = e.target.value;
-      setNewUser({ ...newUser, password: value });
+      setNewUser({ ...newUser, password: value }); // Cập nhật state 'newUser' với giá trị password mới
+
       if (value.trim().length > 0) {
-         setErrorMessage({ ...errorMessage, password: '' });
+         setErrorMessage({ ...errorMessage, password: '' }); // Xóa thông báo lỗi cho trường password nếu giá trị password không rỗng
       }
       // console.log('password >>>', value);
    };
+
    const handlePhoneChange = e => {
+      // Xử lý khi giá trị phone thay đổi
       const value = e.target.value;
-      setNewUser({ ...newUser, phone: value });
+      setNewUser({ ...newUser, phone: value }); // Cập nhật state 'newUser' với giá trị phone mới
+
       if (value.trim().length > 0) {
-         setErrorMessage({ ...errorMessage, phone: '' });
+         setErrorMessage({ ...errorMessage, phone: '' }); // Xóa thông báo lỗi cho trường phone nếu giá trị phone không rỗng
       }
       // console.log('phone >>>', value);
    };
@@ -53,18 +64,18 @@ export default function RegisterForm({ handleShowForm }) {
       email: '',
       password: '',
       phone: '',
-   });
+   }); // Khai báo state 'errorMessage' và hàm 'setErrorMessage' để quản lý thông báo lỗi
 
    const handleClickSignUpBtn = e => {
+      // Xử lý khi nhấp vào nút đăng ký
       e.preventDefault();
-      //handle
 
       const updateUser = {
          name: newUser?.name,
          email: newUser?.email,
          password: newUser?.password,
          phone: newUser?.phone,
-      };
+      }; // Tạo thông tin người dùng mới
 
       const { name, email, password, phone } = updateUser;
 
@@ -75,13 +86,13 @@ export default function RegisterForm({ handleShowForm }) {
          phone,
          userList,
          setErrorMessage,
-      );
+      ); // Kiểm tra tính hợp lệ của thông tin đăng ký và cập nhật thông báo lỗi
 
       if (valid) {
-         dispatch(userAuthSlice.actions.REGISTER(updateUser));
-         alert('Register Success');
-         setNewUser({ name: '', email: '', password: '', phone: '' });
-         handleShowForm();
+         dispatch(userAuthSlice.actions.REGISTER(updateUser)); // Gửi action REGISTER với thông tin người dùng để đăng ký
+         alert('Register Success'); // Hiển thị thông báo đăng ký thành công
+         setNewUser({ name: '', email: '', password: '', phone: '' }); // Xóa thông tin người dùng sau khi đăng ký thành công
+         handleShowForm(); // Xử lý hiển thị form đăng ký
       }
    };
 

@@ -8,40 +8,46 @@ export default function LoginForm({ handleShowForm }) {
    const [user, setUser] = useState({
       email: '',
       password: '',
-   });
+   }); // Khai báo state 'user' và hàm 'setUser' để quản lý thông tin người dùng (email, password)
 
    const [errorMessage, setErrorMessage] = useState({
       email: '',
       password: '',
-   });
-   const userList = useSelector(state => state.userAuth.userList);
-   const userCart = useSelector(state => state.userAuth.userCart);
+   }); // Khai báo state 'errorMessage' và hàm 'setErrorMessage' để quản lý thông báo lỗi
 
-   const dispatch = useDispatch();
+   const userList = useSelector(state => state.userAuth.userList); // Lấy danh sách người dùng từ Redux store
+   const userCart = useSelector(state => state.userAuth.userCart); // Lấy giỏ hàng của người dùng từ Redux store
+
+   const dispatch = useDispatch(); // Dispatch các action đến Redux store
 
    const handleUserEmailChange = e => {
+      // Xử lý khi giá trị email thay đổi
       const value = e.target.value;
-      setUser(prev => ({ ...prev, email: value }));
+      setUser(prev => ({ ...prev, email: value })); // Cập nhật state 'user' với giá trị email mới
 
       if (value.trim().length > 0) {
-         setErrorMessage({ ...errorMessage, email: '' });
+         setErrorMessage({ ...errorMessage, email: '' }); // Xóa thông báo lỗi cho trường email nếu giá trị email không rỗng
       }
    };
+
    const handleUserPasswordChange = e => {
+      // Xử lý khi giá trị password thay đổi
       const value = e.target.value;
-      setUser(prev => ({ ...prev, password: value }));
+      setUser(prev => ({ ...prev, password: value })); // Cập nhật state 'user' với giá trị password mới
 
       if (value.trim().length > 0) {
-         setErrorMessage({ ...errorMessage, password: '' });
+         setErrorMessage({ ...errorMessage, password: '' }); // Xóa thông báo lỗi cho trường password nếu giá trị password không rỗng
       }
    };
+
    const handleSignInBtn = e => {
+      // Xử lý khi nhấp vào nút đăng nhập
       e.preventDefault();
 
       const newUser = {
          email: user.email,
          password: user.password,
-      };
+      }; // Tạo thông tin người dùng mới
 
       const { email, password } = newUser;
 
@@ -50,30 +56,32 @@ export default function LoginForm({ handleShowForm }) {
          password,
          userList,
          setErrorMessage,
-      );
+      ); // Kiểm tra tính hợp lệ của thông tin đăng nhập và cập nhật thông báo lỗi
 
       if (isValid === false) {
-         setUser({ ...user, password: '' });
+         setUser({ ...user, password: '' }); // Xóa giá trị password nếu thông tin đăng nhập không hợp lệ
       }
+
       const userCartChange = userCart;
 
       if (isValid) {
          if (userCartChange.length > 0) {
             const userCartFilter = userCartChange.find(
                item => item.email === email,
-            );
-            console.log(userCartFilter);
+            ); // Lấy giỏ hàng của người dùng từ Redux store dựa trên email
+
             dispatch(
                cartSlice.actions.UPDATE_CART_LOGIN(userCartFilter?.cartItems),
-            );
+            ); // Gửi action UPDATE_CART_LOGIN với danh sách sản phẩm trong giỏ hàng của người dùng để cập nhật giỏ hàng trong Redux store
          }
-         dispatch(userAuthSlice.actions.LOGIN(newUser));
-         alert('Login Success !!!');
+
+         dispatch(userAuthSlice.actions.LOGIN(newUser)); // Gửi action LOGIN với thông tin người dùng để đăng nhập
+         alert('Login Success !!!'); // Hiển thị thông báo đăng nhập thành công
 
          setUser({
             email: '',
             password: '',
-         });
+         }); // Xóa thông tin người dùng sau khi đăng nhập thành công
       }
    };
 

@@ -5,37 +5,39 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cartSlice } from '../../../redux/reducer/cartSlice';
 
 export default function CartTotal() {
-   const [couponText, setCouponText] = useState('');
+   const [couponText, setCouponText] = useState(''); // Khai báo state 'couponText' và hàm 'setCouponText' để quản lý giá trị nhập vào ô nhập mã giảm giá
 
-   const couponTextRef = useRef('');
+   const couponTextRef = useRef(''); // Tạo ref 'couponTextRef' để tham chiếu đến ô nhập mã giảm giá
 
-   const [checkDiscount, setCheckDiscount] = useState(true);
+   const [checkDiscount, setCheckDiscount] = useState(true); // Khai báo state 'checkDiscount' và hàm 'setCheckDiscount' để quản lý trạng thái kiểm tra giảm giá
 
-   const cart = useSelector(state => state.cart.cart);
+   const cart = useSelector(state => state.cart.cart); // Lấy thông tin giỏ hàng từ Redux store
 
-   const dispatch = useDispatch();
+   const dispatch = useDispatch(); // Dispatch các action đến Redux store
 
    const handleApplyCouponChange = e => {
-      //handle
-      const newCouponText = e.target.value;
-      setCouponText(newCouponText);
+      // Xử lý khi giá trị nhập vào ô nhập mã giảm giá thay đổi
+      const newCouponText = e.target.value; // Lấy giá trị mới từ sự kiện thay đổi
+      setCouponText(newCouponText); // Cập nhật state 'couponText' với giá trị mới
    };
+
    const handleApplyCouponBtn = e => {
       e.preventDefault();
-      //Check coupon code
-      const checkDiscountValue = cart.coupon.hasOwnProperty(couponText);
+      // Xử lý khi nhấp vào nút áp dụng mã giảm giá
+      // Kiểm tra mã giảm giá
+      const checkDiscountValue = cart.coupon.hasOwnProperty(couponText); // Kiểm tra xem mã giảm giá có tồn tại trong giỏ hàng hay không
 
-      setCheckDiscount(checkDiscountValue);
+      setCheckDiscount(checkDiscountValue); // Cập nhật trạng thái kiểm tra giảm giá
 
       if (checkDiscountValue) {
-         const coupon = cart.coupon[couponText];
+         const coupon = cart.coupon[couponText]; // Lấy thông tin về mã giảm giá từ giỏ hàng
 
-         dispatch(cartSlice.actions.UPDATE_TOTALWITHCOUPON(coupon));
+         dispatch(cartSlice.actions.UPDATE_TOTALWITHCOUPON(coupon)); // Gửi action UPDATE_TOTALWITHCOUPON với thông tin về mã giảm giá để cập nhật tổng giá trị giỏ hàng
       }
 
-      setCouponText('');
-      couponTextRef.current.focus();
-      //handle
+      setCouponText(''); // Xóa giá trị trong ô nhập mã giảm giá
+      couponTextRef.current.focus(); // Đưa con trỏ vào ô nhập mã giảm giá
+      // Xử lý khác (nếu có)
    };
    return (
       <>
