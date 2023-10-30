@@ -17,10 +17,7 @@ function App() {
    useEffect(() => {
       dispatch(fetchProduct());
    }, []);
-   // handle state of loading data
-   // + pending
-   // + fulfilled
-   // + error
+  
    return (
       <>
          <BrowserRouter>

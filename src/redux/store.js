@@ -17,9 +17,7 @@ import {
    REGISTER,
 } from 'redux-persist';
 
-// const rootReducer = combineReducers({
 
-// });
 
 const userPersistConfig = {
    key: 'user',
@@ -42,11 +40,7 @@ const detailProductPersistConfig = {
 
 export const store = configureStore({
    reducer: {
-      /*
-        nameReducer_1 : reducerSlice_1.reducer,
-        nameReducer_2 : reducerSlice_2.reducer,
-        nameReducer_3 : reducerSlice_3.reducer,
-        */
+      
       cart: persistReducer(cartPersistConfig, cartSlice.reducer),
       product: persistReducer(productPersistConfig, productSlice.reducer),
       detailProduct: persistReducer(

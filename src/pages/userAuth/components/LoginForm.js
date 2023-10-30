@@ -86,8 +86,8 @@ export default function LoginForm({ handleShowForm }) {
    };
 
    return (
-      <div className="login__form">
-         <form autoComplete="off" aria-label="login-form">
+      <div className="login__form ">
+         <form className='slide-in-bottom' autoComplete="off" aria-label="login-form">
             <h2>SIGN IN</h2>
 
             <div className="login__form__container">
