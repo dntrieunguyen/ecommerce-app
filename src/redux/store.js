@@ -35,6 +35,10 @@ const productPersistConfig = {
    key: 'product',
    storage,
 };
+const detailProductPersistConfig = {
+   key: 'detailProduct',
+   storage,
+};
 
 export const store = configureStore({
    reducer: {
@@ -45,8 +49,11 @@ export const store = configureStore({
         */
       cart: persistReducer(cartPersistConfig, cartSlice.reducer),
       product: persistReducer(productPersistConfig, productSlice.reducer),
+      detailProduct: persistReducer(
+         detailProductPersistConfig,
+         detailProductSlice.reducer,
+      ),
       filters: filterProductsSlice.reducer,
-      detailProduct: detailProductSlice.reducer,
       popup: showPopSlice.reducer,
       userAuth: persistReducer(userPersistConfig, userAuthSlice.reducer),
    },
