@@ -34,15 +34,11 @@ export default function HomeTopTrend() {
    const handleClickProduct = () => {
       // Xử lý khi click sản phẩm
       dispatch(showPopSlice.actions.SHOW_POPUP(true)); // Gửi action để hiển thị popup
-      const popContainer =
-         document.getElementsByClassName('pop__containter')[0];
 
-      if (popContainer) {
-         window.scrollTo({
-            top: popContainer.offsetTop,
-            behavior: 'smooth',
-         }); // Di chuyển đến vị trí cụ thể trên trang một cách mượt mà
-      }
+      window.scrollTo({
+         top: 1050,
+         behavior: 'smooth',
+      });
    };
 
    return (
