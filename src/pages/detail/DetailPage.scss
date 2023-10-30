@@ -78,7 +78,7 @@
       .detail__desc__content {
          @apply text-secondary;
          p {
-            @apply w-full;
+            @apply w-full whitespace-pre-wrap;
          }
       }
    }
