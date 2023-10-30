@@ -6,10 +6,14 @@ import DetailInfo from './components/DetailInfo';
 import DetailRelated from './components/DetailRelated';
 import DetailDesc from './components/DetailDesc';
 import { useSelector } from 'react-redux';
-import { detailProducts } from '../../redux/selector';
+import { productListSelector } from '../../redux/selector';
+import { useParams } from 'react-router-dom';
 
 export default function DetailPage() {
-   const product = useSelector(detailProducts);
+   const param = useParams();
+   const productList = useSelector(productListSelector);
+
+   const product = productList.find(product => product._id.$oid === param.id);
 
    return (
       <>

@@ -2,11 +2,16 @@ import React from 'react';
 import Product from '../../../components/product/Product';
 import { useSelector } from 'react-redux';
 import { productListSelector } from '../../../redux/selector';
+import { useNavigate } from 'react-router-dom';
 
 export default function DetailRelated({ category }) {
    const product = useSelector(productListSelector);
-   const handleClickProduct = () => {
+
+   const navigate = useNavigate();
+
+   const handleClickProduct = id => {
       //handle
+      navigate(`/detail/${id}`);
       window.scrollTo({ top: 0, behavior: 'smooth' });
    };
    return (

@@ -13,13 +13,9 @@ export default function HomeTopTrend() {
 
    const navigate = useNavigate();
 
-   const isShowPop = useSelector(state => state.popup.isShowPop);
+   const detailProduct = useSelector(state => state.detailProduct);
 
-   const handleClickProduct = () => {
-      //handle
-      dispatch(showPopSlice.actions.SHOW_POPUP(true));
-      window.scrollTo({ top: 1100, behavior: 'smooth' });
-   };
+   const isShowPop = useSelector(state => state.popup.isShowPop);
 
    const handleClosePopUp = () => {
       //handle
@@ -28,8 +24,15 @@ export default function HomeTopTrend() {
 
    const handleViewDetailBtn = () => {
       dispatch(showPopSlice.actions.HIDE_POPUP(false));
-      navigate('/detail');
+      navigate(`/detail/${detailProduct.productID}`);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+   };
+
+   const handleClickProduct = () => {
+      //handle
+
+      dispatch(showPopSlice.actions.SHOW_POPUP(true));
+      window.scrollTo({ top: 1100, behavior: 'smooth' });
    };
 
    return (

@@ -29,10 +29,13 @@ export default function ShopPage() {
 
    const navigate = useNavigate();
 
-   const handleClickProduct = () => {
+   const handleClickProduct = id => {
       //handle
-      navigate('/detail');
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      navigate(`/detail/${id}`);
+
+      // navigate(`/detail/${detailProduct.productID}`);
    };
 
    return (

@@ -15,7 +15,7 @@ export default function Product(props) {
             img: newImg,
          }),
       );
-      props.handleClickProduct();
+      props.handleClickProduct(newProductID);
    };
    return (
       <>
