@@ -23,7 +23,6 @@ export default function RegisterForm({ handleShowForm }) {
       if (value.trim().length > 0) {
          setErrorMessage({ ...errorMessage, name: '' }); // Xóa thông báo lỗi cho trường name nếu giá trị name không rỗng
       }
-      // console.log('name >>>', value);
    };
 
    const handleEmailChange = e => {
@@ -34,7 +33,6 @@ export default function RegisterForm({ handleShowForm }) {
       if (value.trim().length > 0) {
          setErrorMessage({ ...errorMessage, email: '' }); // Xóa thông báo lỗi cho trường email nếu giá trị email không rỗng
       }
-      // console.log('email >>>', value);
    };
 
    const handlePasswordChange = e => {
@@ -45,7 +43,6 @@ export default function RegisterForm({ handleShowForm }) {
       if (value.trim().length > 0) {
          setErrorMessage({ ...errorMessage, password: '' }); // Xóa thông báo lỗi cho trường password nếu giá trị password không rỗng
       }
-      // console.log('password >>>', value);
    };
 
    const handlePhoneChange = e => {
@@ -56,7 +53,6 @@ export default function RegisterForm({ handleShowForm }) {
       if (value.trim().length > 0) {
          setErrorMessage({ ...errorMessage, phone: '' }); // Xóa thông báo lỗi cho trường phone nếu giá trị phone không rỗng
       }
-      // console.log('phone >>>', value);
    };
 
    const [errorMessage, setErrorMessage] = useState({

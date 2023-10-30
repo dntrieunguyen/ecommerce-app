@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function DetailDesc({ product }) {
-   console.log(product?.long_desc);
    return (
       <>
          <div className="detail__desc">

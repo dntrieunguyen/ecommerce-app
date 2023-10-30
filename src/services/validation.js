@@ -8,8 +8,6 @@ export const registerSubmitValidate = (
 ) => {
    const checkEmail = userList.findIndex(item => item.email === email);
 
-   // console.log(checkEmail);
-
    let isValid = true;
 
    // Kiểm tra name
@@ -72,8 +70,6 @@ export const loginSubmitValidate = (
    setErrorMessage,
 ) => {
    const checkEmail = userList.findIndex(item => item.email === email);
-
-   // console.log(checkEmail);
 
    let isValid = true;
    // Kiểm tra email
